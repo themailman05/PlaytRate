@@ -12,6 +12,7 @@ import json
 import re
 from bs4 import BeautifulSoup
 from app import db, models
+from datetime import datetime
 
 import yelp_api
 import yellow_api
@@ -71,7 +72,7 @@ def analyze(name, location):
 def submitDB(subname, sublocation, subtweets, subresult=dict()):
     sub = models.TwitterBall(name=subname,latitude=sublocation['lat'], longitude=sublocation['long'], tweets=subtweets,
                              ranking=subresult.get('type'),
-                             rankscore=subresult.get('score'), ranktype=subresult.get('targeted'))
+                             rankscore=subresult.get('score'), ranktype=subresult.get('targeted'), dateadded=datetime.now())
     db.session.add(sub)
     db.session.commit()
 

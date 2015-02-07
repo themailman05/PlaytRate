@@ -40,3 +40,7 @@ def results():
     searchresults= yelp_api.query_api(request.form['searchquery'],request.form['location'])
     return render_template('results.html',
                            searchresults=searchresults)
+
+@app.route('/analyze/', methods=['GET'])
+def analyze():
+
