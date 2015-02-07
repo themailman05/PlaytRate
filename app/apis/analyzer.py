@@ -47,13 +47,16 @@ def analyze(name, location):
    
    alchy = alchemyapi.AlchemyAPI()
    final_result = alchy.sentiment_targeted('text',tweet_texts,name)
+   if final_result.get('status') == 'ERROR':
+       final_result = alchy.sentiment('text',tweet_texts)
+       print "Rerunning algo without targeted analysis. After second exec :" + final_result.get('status')
+   return final_result.get('docSentiment')
 
-   print final_result
 
    #print final_result['docSentiment']['type']
    #print final_result['docSentiment']['score']
 def main():
-   analyze("Katz\'s",{ 'lat' : 40.722196, 'long' : -73.987429})
+   print analyze("Katz\'s", { 'lat': 40.722196, 'long': -73.987429})
 
 
 if __name__ == "__main__":
