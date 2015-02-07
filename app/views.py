@@ -49,7 +49,7 @@ def analyze():
     print(name)
     location = {'lat':request.args['lat'],'long':request.args['long']}
     print ("SEARCHED LOCATION IS " + str(location) + "NAME IS :" + name)
-    if dbchatter.BallExists():    #do not analyze if in database
+    if dbchatter.BallExists(name,location):    #do not analyze if in database
         return render_template('analysis.html',
                                name=readablename,
                                twitterball=dbchatter.getTwitterBall(name, location))

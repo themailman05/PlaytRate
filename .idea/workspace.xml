@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f54cbd30-8423-496a-8395-53dc0834af7a" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/apis/analyzer.py" afterPath="$PROJECT_DIR$/app/apis/analyzer.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/apis/dbchatter.py" afterPath="$PROJECT_DIR$/app/apis/dbchatter.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views.py" afterPath="$PROJECT_DIR$/app/views.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -70,8 +68,8 @@
       <file leaf-file-name="views.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.856" vertical-offset="617" max-vertical-offset="1314">
-              <caret line="64" column="55" selection-start-line="64" selection-start-column="55" selection-end-line="64" selection-end-column="55" />
+            <state vertical-scroll-proportion="0.6832" vertical-offset="617" max-vertical-offset="1314">
+              <caret line="58" column="33" selection-start-line="58" selection-start-column="33" selection-end-line="58" selection-end-column="33" />
               <folding>
                 <element signature="e#0#68#0" expanded="true" />
               </folding>
@@ -671,7 +669,11 @@
       <created>1423339621235</created>
       <updated>1423339621235</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Logic in view to not query again if database entry exists">
+      <created>1423340482248</created>
+      <updated>1423340482248</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -723,7 +725,8 @@
     <MESSAGE value="Fun things with sentiment analysis" />
     <MESSAGE value="query queryu query" />
     <MESSAGE value="Database happy times" />
-    <option name="LAST_COMMIT_MESSAGE" value="Database happy times" />
+    <MESSAGE value="Logic in view to not query again if database entry exists" />
+    <option name="LAST_COMMIT_MESSAGE" value="Logic in view to not query again if database entry exists" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1122,8 +1125,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.856" vertical-offset="617" max-vertical-offset="1314">
-          <caret line="64" column="55" selection-start-line="64" selection-start-column="55" selection-end-line="64" selection-end-column="55" />
+        <state vertical-scroll-proportion="0.6832" vertical-offset="617" max-vertical-offset="1314">
+          <caret line="58" column="33" selection-start-line="58" selection-start-column="33" selection-end-line="58" selection-end-column="33" />
           <folding>
             <element signature="e#0#68#0" expanded="true" />
           </folding>
