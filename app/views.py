@@ -1,7 +1,10 @@
 from flask import render_template, flash, redirect, jsonify, request
-from app import app
+from app import app, db, models
 from .forms import SearchForm
 from apis import yellow_api
+import json
+
+decoder = json.JSONDecoder
 
 @app.route('/')
 @app.route('/index')
@@ -24,9 +27,8 @@ def search():
     if form.validate_on_submit():
         flash('Search requested for query="%s", location="%s"' %
              (form.searchquery.data, form.location.data))
-        searchresults = yellow_api.search('Pizza', 'Montreal')
 
-
+        full_url = url_for('results', **request.args)
         return redirect('/results')
     return render_template('search.html',
                            title='Search',
@@ -35,7 +37,6 @@ def search():
 @app.route('/results', methods=['GET'])
 def results():
 
-    print searchresults
-    #searchresults = [{'name':'McGoos Pizza','location':'Harrisonburg'}]
+    searchresults = models.SearchResult.query.get(1)
     return render_template('results.html',
                            searchresults=searchresults)
