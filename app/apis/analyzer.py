@@ -9,6 +9,7 @@ import tweepy
 import urllib
 import urllib2
 import json
+import re
 from bs4 import BeautifulSoup
 
 import yelp_api
@@ -30,8 +31,8 @@ def analyze(name, location):
    auth.set_access_token(T_ACCESS_TOKEN, T_ACCESS_SECRET)
 
    api = tweepy.API(auth)
-
-   place_id = api.reverse_geocode(location.get('lat'),location.get('long'))[0].id
+   
+   place_id = api.reverse_geocode(location['lat'],location['long'])[0].id
 
    search_url = T_WEB_SEARCH_URL + 'place%3A'+place_id+'%20%22'+urllib.quote(name)+'%22'
    
@@ -42,19 +43,17 @@ def analyze(name, location):
    tweets = soup.find_all('p','js-tweet-text')
    tweet_texts = ""
    for i in range(len(tweets)):
-      tweet_texts = tweet_texts + tweets[i].get_text().encode('ascii', 'ignore') + '\n'
+      tweet_texts = tweet_texts + tweets[i].get_text().encode('ascii','ignore') + '\n'
    
    alchy = alchemyapi.AlchemyAPI()
    final_result = alchy.sentiment_targeted('text',tweet_texts,name)
 
-   print tweet_texts
    print final_result
 
    #print final_result['docSentiment']['type']
    #print final_result['docSentiment']['score']
-
 def main():
-   analyze("Sbarro's",{ 'lat' : 40.722196, 'long' : -73.987429})
+   analyze("Katz\'s",{ 'lat' : 40.722196, 'long' : -73.987429})
 
 
 if __name__ == "__main__":
