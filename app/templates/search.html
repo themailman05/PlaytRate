@@ -1,0 +1,20 @@
+<!-- extend from base -->
+
+{% extends "base.html" %}
+
+{% block content %}
+  <h1> Search for a restaurant!</h1>
+  <form id="search" action="" method="post" name="search">
+     {{ form.hidden_tag() }}
+     <p>
+        Please enter a location:<br>
+        {{ form.location(size=80) }}<br>
+     </p>
+     <p>
+        Please enter a search query:<br>
+        {{ form.searchquery }}<br>
+     </p>
+     <p><input type="submit" value="GO!"></p>
+  </form>
+{% endblock %}
+
