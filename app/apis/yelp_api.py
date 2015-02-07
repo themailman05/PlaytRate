@@ -109,7 +109,6 @@ def query_api(term, location):
     response = search(term, location)
 
     businesses = response.get('businesses')
-    print(businesses)
     results = []
 
     if not businesses:
@@ -117,7 +116,7 @@ def query_api(term, location):
         return
     else:
         for business in businesses:
-            if len(results) < 10:
+            #if len(results) < 100:
                 business_id = business['id']
                 response = get_business(business_id) #add top 10
                 response = {'name':response.get('name'), 'urlname':response.get('name').replace(" ","+"), 'location':response.get('location').get('coordinate'),
@@ -127,9 +126,10 @@ def query_api(term, location):
 
     return results
 
-
+"""
 def main():
    query_api("Pizza","Harrisonburg, VA")
 
 if __name__ == "__main__":
    main()
+"""
