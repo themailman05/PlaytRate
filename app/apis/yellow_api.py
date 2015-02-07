@@ -61,7 +61,7 @@ def get_business_info(name, uniqueid, prov):
 
    return response
 
-
+"""
 def main():
    result = search("Pizza","Montreal")
    business = result.get('listings')[0]
@@ -70,4 +70,4 @@ def main():
 
 if __name__ == "__main__":
    main()
-   
+"""   

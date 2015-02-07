@@ -1,6 +1,7 @@
 from flask import render_template, flash, redirect, jsonify, request
 from app import app
 from .forms import SearchForm
+from apis import *
 
 @app.route('/')
 @app.route('/index')
@@ -32,7 +33,7 @@ def search():
 
 @app.route('/results', methods=['GET'])
 def results():
-    #RUN SCRIPT FOR SEARCHING SHIT
-    searchresults = [{'name':'McGoos Pizza','location':'Harrisonburg'}]
+    searchresults = yellow_api.search('Pizza','Montreal')
+    #searchresults = [{'name':'McGoos Pizza','location':'Harrisonburg'}]
     return render_template('results.html',
                            searchresults=searchresults)
