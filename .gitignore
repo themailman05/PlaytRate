@@ -40,3 +40,8 @@ Thumbs.db
 
 db_repository
 flask
+<<<<<<< HEAD
+=======
+flaskmac
+app.db
+>>>>>>> 90aa041d9fe615b389596fed9bbb6f518ce645f7

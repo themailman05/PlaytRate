@@ -1,5 +1,6 @@
 __author__ = 'liam'
 from app import db
+from datetime import datetime
 
 class SearchResult(db.Model):
     query = db.Column(db.String(80), primary_key=True)
@@ -16,6 +17,7 @@ class TwitterBall(db.Model):
     ranking = db.Column(db.String(20))
     rankscore = db.Column(db.Float())
     ranktype = db.Column(db.Boolean())
+    dateadded = db.Column(db.DateTime())
 
     def __repr__(self):
         return '<TwitterBall for {0}>'.format(self.name)
