@@ -4,7 +4,7 @@
 
 {% block content %}
   <h1> Search for a restaurant!</h1>
-  <form id="search" action="" method="post" name="search">
+  <form id="search" action="{{ url_for('results') }}" method="post" name="search">
      {{ form.hidden_tag() }}
      <p>
         Please enter a location:<br>

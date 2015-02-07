@@ -109,24 +109,23 @@ def query_api(term, location):
     response = search(term, location)
 
     businesses = response.get('businesses')
+    print(businesses)
+    results = []
 
     if not businesses:
         print u'No businesses for {0} in {1} found.'.format(term, location)
         return
-
-    business_id = businesses[0]['id']
-
-    print u'{0} businesses found, querying business info for the top result "{1}" ...'.format(
-        len(businesses),
-        business_id
-    )
-
-    response = get_business(business_id)
-    response = {'name':response.get('name'), 'location':response.get('location').get('coordinate'),
+    else:
+        for business in businesses:
+            if len(results) < 10:
+                business_id = business['id']
+                response = get_business(business_id) #add top 10
+                response = {'name':response.get('name'), 'urlname':response.get('name').replace(" ","+"), 'location':response.get('location').get('coordinate'),
                 'rating':response.get('rating'),'numratings':response.get('review_count'),
                 'url':response.get('url'),'categories':response.get('categories')}
-    print u'Result for business "{0}" found:'.format(business_id)
-    pprint.pprint(response, indent=2)
+                results.append(response)
+
+    return results
 
 
 def main():

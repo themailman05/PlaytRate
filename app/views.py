@@ -2,7 +2,9 @@ from flask import render_template, flash, redirect, jsonify, request
 from app import app, db, models
 from .forms import SearchForm
 from apis import yellow_api
+from apis import yelp_api
 import json
+
 
 decoder = json.JSONDecoder
 
@@ -28,15 +30,13 @@ def search():
         flash('Search requested for query="%s", location="%s"' %
              (form.searchquery.data, form.location.data))
 
-        full_url = url_for('results', **request.args)
         return redirect('/results')
     return render_template('search.html',
                            title='Search',
                            form=form)
 
-@app.route('/results', methods=['GET'])
+@app.route('/results', methods=['GET','POST'])
 def results():
-
-    searchresults = models.SearchResult.query.get(1)
+    searchresults= yelp_api.query_api(request.form['searchquery'],request.form['location'])
     return render_template('results.html',
                            searchresults=searchresults)
