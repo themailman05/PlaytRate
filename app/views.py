@@ -4,6 +4,7 @@ from .forms import SearchForm
 from apis import yellow_api
 from apis import yelp_api
 import json
+from apis import dbchatter, analyzer
 
 
 decoder = json.JSONDecoder
@@ -41,6 +42,13 @@ def results():
     return render_template('results.html',
                            searchresults=searchresults)
 
-@app.route('/analyze/', methods=['GET'])
+@app.route('/analyze', methods=['GET'])
 def analyze():
+    name = request.args['name'].replace
+    print(name)
+    location = {'lat':request.args['lat'],'long':request.args['long']}
+    print(str(location))
+    analyzer.analyze(name, location)
+    print dbchatter.getTwitterBall(name,location)
+    return "ok"
 

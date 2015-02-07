@@ -6,8 +6,8 @@
   <h1>Here are your results</h1>
      <ul class = "resultslist"> 
      {% for result in searchresults %} <!--FIX QUERY ONCE API IS TALKING-->
-     {% set query = "/analyze?name="+ result.urlname + "&latitude=" + result.location.latitude|string
-             + "&longitude="+ result.location.longitude|string %}
+     {% set query = "/analyze?name="+ result.urlname + "&lat=" + result.location.latitude|string
+             + "&long="+ result.location.longitude|string %}
        <li><a href={{query}}>{{result.name}} - Yelp rating: {{ result.rating }}</a>
 
      {% endfor %}

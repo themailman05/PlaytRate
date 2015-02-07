@@ -12,10 +12,9 @@ import json
 import re
 from bs4 import BeautifulSoup
 from app import db, models
-from datetime import datetime
-
 import yelp_api
 import yellow_api
+
 from alchemyapi_python import alchemyapi
 
 
@@ -46,8 +45,11 @@ def analyze(name, location):
     tweet_texts = ""
     for i in range(len(tweets)):
       tweet_texts = tweet_texts + tweets[i].get_text().encode('ascii','ignore') + '\n'
+    try:
+        alchy = alchemyapi.AlchemyAPI()
+    except:
+        print "FUUUUUCK"
 
-    alchy = alchemyapi.AlchemyAPI()
     final_result = alchy.sentiment_targeted('text',tweet_texts,name)
     type = 'targeted'
     if final_result.get('status') == 'ERROR':
@@ -60,25 +62,22 @@ def analyze(name, location):
         final_result['targeted'] = False
     else:
         final_result['targeted'] = True
+    print final_result
 
     submitDB(name, location, tweet_texts, final_result)
 
     return final_result
 
-
-   #print final_result['docSentiment']['type']
-   #print final_result['docSentiment']['score']
-
 def submitDB(subname, sublocation, subtweets, subresult=dict()):
-    sub = models.TwitterBall(name=subname,latitude=sublocation['lat'], longitude=sublocation['long'], tweets=subtweets,
+    sub = models.TwitterBall(name=subname,lat=sublocation['lat'], long=sublocation['long'], tweets=subtweets,
                              ranking=subresult.get('type'),
-                             rankscore=subresult.get('score'), ranktype=subresult.get('targeted'), dateadded=datetime.now())
+                             rankscore=subresult.get('score'), ranktype=subresult.get('targeted'))
     db.session.add(sub)
     db.session.commit()
 
 
 def main():
-   print analyze("McDonalds", { 'lat': 40.722196, 'long': -73.987429})
+   print analyze("hamburger", { 'lat': 40.722196, 'long': -73.987429})
 
 
 if __name__ == "__main__":
