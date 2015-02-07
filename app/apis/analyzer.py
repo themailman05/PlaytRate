@@ -38,6 +38,10 @@ def analyze(name, location):
 
         place_id = api.reverse_geocode(location['lat'],location['long'])[0].id
 
+        details = api.geo_id(place_id)
+        #details = {'name':details['name']}
+        print "Details of geocode " + str(details)
+
         search_url = T_WEB_SEARCH_URL + 'place%3A'+place_id+'%20%22'+urllib.quote(name)+'%22'
 
         page = urllib2.urlopen(search_url)

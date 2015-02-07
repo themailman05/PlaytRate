@@ -24,8 +24,8 @@ class TwitterBall(db.Model):
 
 
 class PlaceRanking(db.Model):
+    id = db.Column(db.ForeignKey(TwitterBall.id))
     name = db.Column(db.String(120), primary_key=True)
-    location = db.Column(db.String(200),index=True)
     computedrating = db.Column(db.Float(12))
     yelprating = db.Column(db.Float(12))
     quips = db.Column(db.String(280),index=True)

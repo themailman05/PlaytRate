@@ -5,7 +5,14 @@
    </section>
    <div class = 'results'>
        <p>{{ twitterball.tweets }}</p>
-       <p>{{ twitterball.rating }}</p>
+       <p>Score of {{ twitterball.rankscore }} {{ twitterball.ranking }} for {{ name }}</p>
+
+       {% if twitterball.ranktype == 1  %}
+         <p>Score is based on sentiments towards {{ name }}.</p>
+       {% else %}
+         <p>Score is based on general sentiments discovered in tweets.</p>
+       {% endif %}
+
     </div>
 {% endblock %}
 
