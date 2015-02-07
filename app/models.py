@@ -8,6 +8,19 @@ class SearchResult(db.Model):
     def __repr__(self):
         return '<SearchResult %r>' (self.query)
 
+class TwitterBall(db.Model):
+    name = db.Column(db.String(100), primary_key=True)
+    latitude = db.Column(db.Float())
+    longitude = db.Column(db.Float())
+    tweets = db.Column(db.String(3000))
+    ranking = db.Column(db.String(20))
+    rankscore = db.Column(db.Float())
+    ranktype = db.Column(db.Boolean())
+
+    def __repr__(self):
+        return '<TwitterBall for {0}>'.format(self.name)
+
+
 class PlaceRanking(db.Model):
     name = db.Column(db.String(120), primary_key=True)
     location = db.Column(db.String(200),index=True)
