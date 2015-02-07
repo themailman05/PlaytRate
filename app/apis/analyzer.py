@@ -1,4 +1,6 @@
+#!flask/bin/python
 """
+
 Sentiment Analyzer that reads twitter feeds
 
 

@@ -1,30 +1,35 @@
-<html>
+<!doctype=html>
+<html lang="eng">
   <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    
     {% if title %}
     <title>MouthFeel - {{Home}}</title>
     {% else %}
     <title>MouthFeel</title>
     {% endif %}
-  <link href='http://fonts.googleapis.com/css?family=Droid+Sans' rel='stylesheet' type='text/css'>
-  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <link href='http://fonts.googleapis.com/css?family=Droid+Sans' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+
   </head>
   <body>
-   <section class = header>
-       <h1>MouthFeel<br/></h1>
-       <h3>MouthFeel is a powerful tool for finding good food near you.</h3>
-       <!--<div class=linkBox >
-           <a href="/index">Home</a>
-           <a href="/search">Search</a>
-       </div>-->
-       <svg class = buttonsBar>
-           <rect x=10 y="10" rx="10" ry="10" width ="250" height="75"
-            style="fill:#8E44AD">
-          <!-- <rect x="200" y="200" rx="10" ry="10" width ="150" height="150"
-            style="fill:#8E44AD"> -->
-       </svg>
-   </section>
-   <!--<hr>-->
-  <!-- {% with messages = get_flashed_messages() %}
+   <div class="container">
+
+      <div class="starter-template">
+        <h1>Pleyt</h1>
+        <h3>Pleyt is a powerful tool for finding good food near you.</h3><br/>
+        <h3> <a href="\index">HOME</a> <a href="\search">Search</a> </h3>
+      </div>
+
+    </div>  
+  {% with messages = get_flashed_messages() %}
      {% if messages %}
        <ul>
        {% for message in messages %}
@@ -33,6 +38,14 @@
        </ul>
      {% endif %}
    {% endwith %}
-   {% block content %}{% endblock %}   -->
+   {% block content %}{% endblock %}
   </body>
-</html>
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="../../dist/js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+  </body>
+</html></html>
