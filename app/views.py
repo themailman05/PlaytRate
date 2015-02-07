@@ -12,7 +12,7 @@ decoder = json.JSONDecoder
 @app.route('/')
 @app.route('/index')
 def index():
-    if dbchatter.getNumRows() > 0:
+    if dbchatter.getNumRows() > 4:
         return render_template('index.html',
                                title='Home',
                                recent=dbchatter.getRandomEntries(5))
