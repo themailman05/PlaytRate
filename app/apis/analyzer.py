@@ -45,10 +45,10 @@ def analyze(name, location):
     tweet_texts = ""
     for i in range(len(tweets)):
       tweet_texts = tweet_texts + tweets[i].get_text().encode('ascii','ignore') + '\n'
-    try:
-        alchy = alchemyapi.AlchemyAPI()
-    except:
-        print "FUUUUUCK"
+
+    alchy = alchemyapi.AlchemyAPI()
+
+    print tweet_texts
 
     final_result = alchy.sentiment_targeted('text',tweet_texts,name)
     type = 'targeted'
@@ -56,6 +56,11 @@ def analyze(name, location):
        final_result = alchy.sentiment('text',tweet_texts)
        type = 'general'
        print "Rerunning algo without targeted analysis. After second exec :" + str(final_result)
+       if final_result['status'] =='ERROR':
+           final_result="ERROR"
+           return final_result
+
+
 
     final_result = final_result.get('docSentiment')
     if type == 'general':
@@ -77,7 +82,8 @@ def submitDB(subname, sublocation, subtweets, subresult=dict()):
 
 
 def main():
-   print analyze("hamburger", { 'lat': 40.722196, 'long': -73.987429})
+   print analyze("hot dog", {'lat': 40.722196, 'long': -73.987429})
+
 
 
 if __name__ == "__main__":

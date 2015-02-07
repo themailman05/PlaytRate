@@ -44,11 +44,15 @@ def results():
 
 @app.route('/analyze', methods=['GET'])
 def analyze():
-    name = request.args['name'].replace
+    name = request.args['name']
+    readablename = request.args['name'].replace('+',' ')
     print(name)
     location = {'lat':request.args['lat'],'long':request.args['long']}
-    print(str(location))
-    analyzer.analyze(name, location)
-    print dbchatter.getTwitterBall(name,location)
-    return "ok"
+    print ("SEARCHED LOCATION IS " + str(location) + "NAME IS :" + name)
+    if not analyzer.analyze(name, location) == "ERROR":
+        print dbchatter.getTwitterBall(name,location)
+        return "ok"
+    else:
+        flash('Not enough tweets for '+ readablename + ', try a new location.')
+        return redirect('/search')
 
