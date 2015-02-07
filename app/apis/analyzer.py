@@ -4,46 +4,44 @@ Sentiment Analyzer that reads twitter feeds
 @author David McVicar
 """
 
-import requests
-import base64
-import json
+import tweepy
+import urllib
+import oauth2
 
 import yelp_api
 import yellow_api
 from alchemyapi_python import alchemyapi
 
-T_AUTH_URL = 'https://api.twitter.com/oauth2/token'
-T_GEO_SEARCH_URL = 'https://api.twitter.com/1.1/geo/search.json'
+
 T_CONSUMER_KEY = 'O9IiAWuqqs5GRWbMBBTgCI322'
 T_CONSUMER_SECRET = '5a6BAdhFEuW3MBAt5AFdiaZwN7gyrk6TkaCLmmV6B5ydtzBoWv'
+T_ACCESS_TOKEN = '54745215-vsvjElxhcznr0HTmpnJ3giGC3VkkiZFTjHI480hvY'
+T_ACCESS_SECRET = '5ZdfmM2YxKEGCjmvOFGKWq5Sz6YATr1V7zbI8cYDWja48'
+
+T_WEB_SEARCH_URL = 'https://twitter.com/search'
 
 
+def analyze(name, location):
 
-def analyze(name, address):
+   auth = tweepy.OAuthHandler(T_CONSUMER_KEY, T_CONSUMER_SECRET)
+   auth.set_access_token(T_ACCESS_TOKEN, T_ACCESS_SECRET)
 
-    #Get the Application-onlu bearer Token
-    twitter_key = T_CONSUMER_KEY + ':'  + T_CONSUMER_SECRET
-    headers = {"Authorization" : "Basic " + base64.b64encode(twitter_key),\
-               "Content-Type" : "application/x-www-form-urlencoded;charset=UTF-8" }
-    payload = { "grant_type" : "client_credentials" }
+   api = tweepy.API(auth)
 
-    
-    r = requests.post(T_AUTH_URL,data=payload,headers=headers)
-    token = r.json().get('access_token')
+   place_id = api.reverse_geocode(location.get('lat'),location.get('long'))[0].id
 
-    print token
+   #tweets = api.search(q = 'place%3A'+place_id+'%20%22'+urllib.quote(name)+'%22')
+   tweets = api.search(q = 'Pizza')
+   print 'place%3A' + place_id + '%20%22' + urllib.quote(name) + '%22'
+   print tweets
 
-    #Run Twitter geo location query
-    payload = { "query" : name , "attribute:street_address" : address }
-    headers = { "Authorization" : "Bearer " + token }
-
-    r = requests.get(T_GEO_SEARCH_URL,params=payload,headers=headers)
-    print r
-    matches = r.json()
-    print matches
+   alchy = alchemyapi.AlchemyAPI()
+   #final_result = alchy.sentiment_targeted('url',search_url,name)
+   
 
 def main():
-   analyze("Double Pizza","1146 boul. Marcel-Laurin")
+   analyze("Starbucks",{ 'lat' : 37.2304516, 'long' : -80.4294548})
+
 
 if __name__ == "__main__":
    main()
