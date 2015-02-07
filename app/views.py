@@ -12,7 +12,11 @@ from app import app
 
 def index():
     return render_template('index.html',
-                           title='Home',)
+                           title='Home',
+                           recent = [{'name':'Mah Pizza',
+                                      'location':'Harrisonburg',
+                                      'rating':3.5,
+                                      'numratings':1000}])
 
 def get_my_ip():
     return jsonify({'ip': request.environ['REMOTE_ADDR']}), 200

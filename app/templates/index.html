@@ -1,15 +1,12 @@
-<html>
-  <head>
-    <title>MouthFeel - {{Home}}</title>
-  </head>
-  <body>
-   <section class = 'header'>
-      <h1>Welcome to MouthFeel!</h1>
-      <h3>MouthFeel is a powerful tool for finding good food near you.</h3>
-   </section>
+{% extends "base.html" %}
+{% block content %}
    <section class = 'about'>
       <h4>While most websites rely on customer-provided reviews to rank quality, MouthFeel relies on sentiment analysis to find out what people are actually SAYING about restaurants.</h4>
       <p>Go ahead, give us a taste.</p>
    </section>
-  </body>
-</html>
+   <div id = 'recent'>
+     <h4>Here is a list of the most recent searches on our site:</h4>
+         {% for result in recent %}
+         <div><p>{{result.name }} in {{ result.location }} is rated {{result.rating}} based on {{result.numratings}} reviews.</p>
+         {% endfor %}
+{% endblock %}
