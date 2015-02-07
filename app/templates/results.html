@@ -5,9 +5,10 @@
   <div id = "results">
   <h1>Here are your results</h1>
      <ul class = "resultslist"> 
-     {% for result in searchresults %}
-     {% set query = "/analyze"+ result.name + "FIXTHIS" + result.location %}}
-       <li><href a={{query}}>{{result.name}}</a>
+     {% for result in searchresults.listings %}
+     {% set query = "/analyze/ "+ result.name + "FIXTHIS" + result.address.street %}
+       <li><a href={{query}}>{{result.name}}</a>
+
      {% endfor %}
     
   </div> 

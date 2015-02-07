@@ -122,7 +122,9 @@ def query_api(term, location):
     )
 
     response = get_business(business_id)
-
+    response = {'name':response.get('name'), 'location':response.get('location').get('coordinate'),
+                'rating':response.get('rating'),'numratings':response.get('review_count'),
+                'url':response.get('url'),'categories':response.get('categories')}
     print u'Result for business "{0}" found:'.format(business_id)
     pprint.pprint(response, indent=2)
 
