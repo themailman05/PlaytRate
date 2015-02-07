@@ -49,12 +49,19 @@ def analyze():
     print(name)
     location = {'lat':request.args['lat'],'long':request.args['long']}
     print ("SEARCHED LOCATION IS " + str(location) + "NAME IS :" + name)
-    if not analyzer.analyze(name, location) == "ERROR":
-        twiball = dbchatter.getTwitterBall(name,location)
+    if dbchatter.BallExists():    #do not analyze if in database
         return render_template('analysis.html',
                                name=readablename,
-                               twitterball=twiball)
+                               twitterball=dbchatter.getTwitterBall(name, location))
     else:
-        flash('Not enough tweets for '+ readablename + ', try a new location.')
-        return redirect('/search')
+        result = analyzer.analyze(name,location)
+        if result == "ERROR":
+            flash('Not enough tweets for '+ readablename + ', try a new location.')
+            return redirect('/search')
+        else:
+            twiball = dbchatter.getTwitterBall(name,location)
+            return render_template('analysis.html',
+                                   name=readablename,
+                                   twitterball=twiball)
+
 
