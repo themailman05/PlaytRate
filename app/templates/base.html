@@ -1,0 +1,17 @@
+<html>
+  <head>
+    {% if title %}
+    <title>MouthFeel - {{Home}}</title>
+    {% else %}
+    <title>MouthFeel</title>
+    {% endif %}
+  </head>
+  <body>
+   <section class = 'header'>
+      <h1>MouthFeel <a href="/index">Home</a></h1>
+      <h3>MouthFeel is a powerful tool for finding good food near you.</h3>
+   </section>
+   <hr>
+   {% block content %}{% endblock %}   
+  </body>
+</html>
