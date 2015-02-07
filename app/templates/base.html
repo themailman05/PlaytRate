@@ -9,12 +9,22 @@
   <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
   </head>
   <body>
-   <section class = 'header'>
-      <h1>MouthFeel <a href="/index">Home</a><a href="/search">Search</a></h1>
-      <h3>MouthFeel is a powerful tool for finding good food near you.</h3>
+   <section class = header>
+       <h1>MouthFeel<br/></h1>
+       <h3>MouthFeel is a powerful tool for finding good food near you.</h3>
+       <!--<div class=linkBox >
+           <a href="/index">Home</a>
+           <a href="/search">Search</a>
+       </div>-->
+       <svg class = buttonsBar>
+           <rect x=10 y="10" rx="10" ry="10" width ="250" height="75"
+            style="fill:#8E44AD">
+          <!-- <rect x="200" y="200" rx="10" ry="10" width ="150" height="150"
+            style="fill:#8E44AD"> -->
+       </svg>
    </section>
-   <hr>
-   {% with messages = get_flashed_messages() %}
+   <!--<hr>-->
+  <!-- {% with messages = get_flashed_messages() %}
      {% if messages %}
        <ul>
        {% for message in messages %}
@@ -23,6 +33,6 @@
        </ul>
      {% endif %}
    {% endwith %}
-   {% block content %}{% endblock %}   
+   {% block content %}{% endblock %}   -->
   </body>
 </html>
