@@ -5,8 +5,6 @@ from apis import yellow_api
 
 @app.route('/')
 @app.route('/index')
-
-@app.route("/getip", methods=["GET"])
 def index():
     return render_template('index.html',
                            title='Home',
@@ -16,7 +14,7 @@ def index():
                                       'numratings':1000}])
 
 
-
+@app.route("/getip", methods=["GET"])
 def getip():
     return jsonify({'ip': request.environ['REMOTE_ADDR']}), 200
 
@@ -26,6 +24,9 @@ def search():
     if form.validate_on_submit():
         flash('Search requested for query="%s", location="%s"' %
              (form.searchquery.data, form.location.data))
+        searchresults = yellow_api.search('Pizza', 'Montreal')
+
+
         return redirect('/results')
     return render_template('search.html',
                            title='Search',
@@ -33,7 +34,7 @@ def search():
 
 @app.route('/results', methods=['GET'])
 def results():
-    searchresults = yellow_api.search('Pizza', 'Montreal')
+
     print searchresults
     #searchresults = [{'name':'McGoos Pizza','location':'Harrisonburg'}]
     return render_template('results.html',

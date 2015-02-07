@@ -6,8 +6,8 @@
   <h1>Here are your results</h1>
      <ul class = "resultslist"> 
      {% for result in searchresults.listings %}
-
-         <p>{{ result.name }}</p>
+     {% set query = "/analyze/ "+ result.name + "FIXTHIS" + result.address.street %}
+       <li><a href={{query}}>{{result.name}}</a>
 
      {% endfor %}
     
