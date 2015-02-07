@@ -1,14 +1,13 @@
 {% extends "base.html" %}
 {% block content %}
    <section class = 'Results'>
-      <h4>Here are is what people think about {{ name }} in {{ location }}</h4>
+      <h4>Here are is what people think about {{ name }}</h4>
    </section>
-   <div id = 'recent'>
-     <h4>Here is a list of the most recent searches on our site:</h4>
-         {% for result in recent %}
-         <div><p>{{result.name }} in {{ result.location }} is rated {{result.rating}} based on {{result.numratings}} reviews.</p>
-         {% endfor %}
+   <div class = 'results'>
+       <p>{{ twitterball.tweets }}</p>
+       <p>{{ twitterball.rating }}</p>
+    </div>
 {% endblock %}
 
-</body>
+  </body>
 </html>

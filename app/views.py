@@ -1,6 +1,6 @@
 from flask import render_template, flash, redirect, jsonify, request
 from app import app, db, models
-from .forms import SearchForm
+from .forms import SearchAreaForLocations
 from apis import yellow_api
 from apis import yelp_api
 import json
@@ -26,7 +26,7 @@ def getip():
 
 @app.route('/search', methods=['GET', 'POST'])
 def search():
-    form = SearchForm()
+    form = SearchAreaForLocations()
     if form.validate_on_submit():
         flash('Search requested for query="%s", location="%s"' %
              (form.searchquery.data, form.location.data))
@@ -50,8 +50,10 @@ def analyze():
     location = {'lat':request.args['lat'],'long':request.args['long']}
     print ("SEARCHED LOCATION IS " + str(location) + "NAME IS :" + name)
     if not analyzer.analyze(name, location) == "ERROR":
-        print dbchatter.getTwitterBall(name,location)
-        return "ok"
+        twiball = dbchatter.getTwitterBall(name,location)
+        return render_template('analysis.html',
+                               name=readablename,
+                               twitterball=twiball)
     else:
         flash('Not enough tweets for '+ readablename + ', try a new location.')
         return redirect('/search')

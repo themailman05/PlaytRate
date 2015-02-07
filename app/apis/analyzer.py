@@ -50,7 +50,7 @@ def analyze(name, location):
 
     print tweet_texts
 
-    final_result = alchy.sentiment_targeted('text',tweet_texts,name)
+    final_result = alchy.sentiment_targeted('text',tweet_texts,name.lower())
     type = 'targeted'
     if final_result.get('status') == 'ERROR':
        final_result = alchy.sentiment('text',tweet_texts)
