@@ -43,4 +43,4 @@ def results():
 
 @app.route('/analyze/', methods=['GET'])
 def analyze():
-
+    return 0
