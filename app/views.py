@@ -29,3 +29,10 @@ def search():
     return render_template('search.html',
                            title='Search',
                            form=form)
+
+@app.route('/results', methods=['GET'])
+def results():
+    #RUN SCRIPT FOR SEARCHING SHIT
+    searchresults = [{'name':'McGoos Pizza','location':'Harrisonburg'}]
+    return render_template('results.html',
+                           searchresults=searchresults)
