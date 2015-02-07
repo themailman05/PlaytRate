@@ -1,9 +1,10 @@
 from flask import render_template, flash, redirect, jsonify, request
 from app import app, db, models
-from .forms import SearchForm
+from .forms import SearchAreaForLocations
 from apis import yellow_api
 from apis import yelp_api
 import json
+from apis import dbchatter, analyzer
 
 
 decoder = json.JSONDecoder
@@ -25,7 +26,7 @@ def getip():
 
 @app.route('/search', methods=['GET', 'POST'])
 def search():
-    form = SearchForm()
+    form = SearchAreaForLocations()
     if form.validate_on_submit():
         flash('Search requested for query="%s", location="%s"' %
              (form.searchquery.data, form.location.data))
@@ -41,6 +42,26 @@ def results():
     return render_template('results.html',
                            searchresults=searchresults)
 
-@app.route('/analyze/', methods=['GET'])
+@app.route('/analyze', methods=['GET'])
 def analyze():
-    return 0
+    name = request.args['name']
+    readablename = request.args['name'].replace('+',' ')
+    print(name)
+    location = {'lat':request.args['lat'],'long':request.args['long']}
+    print ("SEARCHED LOCATION IS " + str(location) + "NAME IS :" + name)
+    if dbchatter.BallExists(name,location):    #do not analyze if in database
+        return render_template('analysis.html',
+                               name=readablename,
+                               twitterball=dbchatter.getTwitterBall(name, location))
+    else:
+        result = analyzer.analyze(name,location)
+        if result == "ERROR":
+            flash('Not enough tweets for '+ readablename + ', try a new location.')
+            return redirect('/search')
+        else:
+            twiball = dbchatter.getTwitterBall(name,location)
+            return render_template('analysis.html',
+                                   name=readablename,
+                                   twitterball=twiball)
+
+

@@ -10,14 +10,14 @@ class SearchResult(db.Model):
         return '<SearchResult %r>' (self.query)
 
 class TwitterBall(db.Model):
-    name = db.Column(db.String(100), primary_key=True)
-    latitude = db.Column(db.Float())
-    longitude = db.Column(db.Float())
+    id = db.Column(db.Integer(), primary_key=True, autoincrement=1)
+    name = db.Column(db.String(100), index=True)
+    lat = db.Column(db.Float(), index=True)
+    long = db.Column(db.Float(), index=True)
     tweets = db.Column(db.String(3000))
     ranking = db.Column(db.String(20))
     rankscore = db.Column(db.Float())
     ranktype = db.Column(db.Boolean())
-    dateadded = db.Column(db.DateTime())
 
     def __repr__(self):
         return '<TwitterBall for {0}>'.format(self.name)
