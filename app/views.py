@@ -18,7 +18,7 @@ def index():
                                       'rating':3.5,
                                       'numratings':1000}])
 
-def get_my_ip():
+def getip():
     return jsonify({'ip': request.environ['REMOTE_ADDR']}), 200
 
 def search():
