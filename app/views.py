@@ -22,6 +22,10 @@ def getip():
 @app.route('/search', methods=['GET', 'POST'])
 def search():
     form = SearchForm()
+    if form.validate_on_submit():
+        flash('Search requested for query="%s", location="%s"' %
+             (form.searchquery.data, form.location.data))
+        return redirect('/results')
     return render_template('search.html',
                            title='Search',
                            form=form)
