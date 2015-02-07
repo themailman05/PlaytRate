@@ -8,26 +8,33 @@
     <meta name="author" content="">
     
     {% if title %}
-    <title>MouthFeel - {{Home}}</title>
+    <title>Pleyt - {{Home}}</title>
     {% else %}
-    <title>MouthFeel</title>
+    <title>Pleyt</title>
     {% endif %}
 
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
     <link href='http://fonts.googleapis.com/css?family=Droid+Sans' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
 
   </head>
-  <body>
+  <body background-color = #EEEEEE>
    <div class="container">
 
       <div class="starter-template">
-        <h1>Pleyt</h1>
-        <h3>Pleyt is a powerful tool for finding good food near you.</h3><br/>
-        <h3> <a href="\index">HOME</a> <a href="\search">Search</a> </h3>
+        <h1 style="text-align:center" >Pleyt</h1>
+        <h3 style="text-align:center" >Pleyt is a powerful tool for finding good food near you.</h3><br/>
+         <div class='row'>
+          <div class='col-md-3'></div>
+          <div class='col-md-3'>
+             <a href='/index'><button type="button" class="btn btn-lg btn-primary" style="float:right">HOME</button></a>
+          </div>
+          <div class='col-md-3'>
+             <a href='/search'><button type="button" class="btn btn-lg btn-primary" style="float:left">SEARCH</button></a>
+          </div>
+          <div class='col-md-3'></div>
+          </div>
       </div>
-
     </div>  
   {% with messages = get_flashed_messages() %}
      {% if messages %}
