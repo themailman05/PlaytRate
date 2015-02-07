@@ -8,7 +8,7 @@
      {% for result in searchresults %} <!--FIX QUERY ONCE API IS TALKING-->
      {% set query = "/analyze/?"+ result.urlname + "?" + result.location.latitude|string
              + "?"+ result.location.longitude|string %}
-       <li><a href={{query}}>{{result.name}}</a>
+       <li><a href={{query}}>{{result.name}} - Yelp rating: {{ result.rating }}</a>
 
      {% endfor %}
     

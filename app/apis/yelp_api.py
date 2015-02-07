@@ -23,7 +23,7 @@ import oauth2
 API_HOST = 'api.yelp.com'
 DEFAULT_TERM = 'dinner'
 DEFAULT_LOCATION = 'San Francisco, CA'
-SEARCH_LIMIT = 10 
+SEARCH_LIMIT = 10
 SEARCH_PATH = '/v2/search/'
 BUSINESS_PATH = '/v2/business/'
 
@@ -111,12 +111,13 @@ def query_api(term, location):
     businesses = response.get('businesses')
     results = []
 
+    print len(businesses)
+
     if not businesses:
         print u'No businesses for {0} in {1} found.'.format(term, location)
         return
     else:
         for business in businesses:
-            #if len(results) < 100:
                 business_id = business['id']
                 response = get_business(business_id) #add top 10
                 response = {'name':response.get('name'), 'urlname':response.get('name').replace(" ","+"), 'location':response.get('location').get('coordinate'),

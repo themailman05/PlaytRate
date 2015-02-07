@@ -11,6 +11,7 @@ import urllib2
 import json
 import re
 from bs4 import BeautifulSoup
+from app import db, models
 
 import yelp_api
 import yellow_api
@@ -27,33 +28,56 @@ T_WEB_SEARCH_URL = 'https://www.twitter.com/search/?q='
 
 def analyze(name, location):
 
-   auth = tweepy.OAuthHandler(T_CONSUMER_KEY, T_CONSUMER_SECRET)
-   auth.set_access_token(T_ACCESS_TOKEN, T_ACCESS_SECRET)
+    auth = tweepy.OAuthHandler(T_CONSUMER_KEY, T_CONSUMER_SECRET)
+    auth.set_access_token(T_ACCESS_TOKEN, T_ACCESS_SECRET)
 
-   api = tweepy.API(auth)
-   
-   place_id = api.reverse_geocode(location['lat'],location['long'])[0].id
+    api = tweepy.API(auth)
 
-   search_url = T_WEB_SEARCH_URL + 'place%3A'+place_id+'%20%22'+urllib.quote(name)+'%22'
-   
-   page = urllib2.urlopen(search_url)
-   html = page.read()   
+    place_id = api.reverse_geocode(location['lat'],location['long'])[0].id
 
-   soup = BeautifulSoup(html)
-   tweets = soup.find_all('p','js-tweet-text')
-   tweet_texts = ""
-   for i in range(len(tweets)):
+    search_url = T_WEB_SEARCH_URL + 'place%3A'+place_id+'%20%22'+urllib.quote(name)+'%22'
+
+    page = urllib2.urlopen(search_url)
+    html = page.read()
+
+    soup = BeautifulSoup(html)
+    tweets = soup.find_all('p','js-tweet-text')
+    tweet_texts = ""
+    for i in range(len(tweets)):
       tweet_texts = tweet_texts + tweets[i].get_text().encode('ascii','ignore') + '\n'
-   
-   alchy = alchemyapi.AlchemyAPI()
-   final_result = alchy.sentiment_targeted('text',tweet_texts,name)
 
-   print final_result
+    alchy = alchemyapi.AlchemyAPI()
+    final_result = alchy.sentiment_targeted('text',tweet_texts,name)
+    type = 'targeted'
+    if final_result.get('status') == 'ERROR':
+       final_result = alchy.sentiment('text',tweet_texts)
+       type = 'general'
+       print "Rerunning algo without targeted analysis. After second exec :" + str(final_result)
+
+    final_result = final_result.get('docSentiment')
+    if type == 'general':
+        final_result['targeted'] = False
+    else:
+        final_result['targeted'] = True
+
+    submitDB(name, location, tweet_texts, final_result)
+
+    return final_result
+
 
    #print final_result['docSentiment']['type']
    #print final_result['docSentiment']['score']
+
+def submitDB(subname, sublocation, subtweets, subresult=dict()):
+    sub = models.TwitterBall(name=subname,latitude=sublocation['lat'], longitude=sublocation['long'], tweets=subtweets,
+                             ranking=subresult.get('type'),
+                             rankscore=subresult.get('score'), ranktype=subresult.get('targeted'))
+    db.session.add(sub)
+    db.session.commit()
+
+
 def main():
-   analyze("Katz\'s",{ 'lat' : 40.722196, 'long' : -73.987429})
+   print analyze("McDonalds", { 'lat': 40.722196, 'long': -73.987429})
 
 
 if __name__ == "__main__":
