@@ -120,7 +120,8 @@ def query_api(term, location):
         for business in businesses:
                 business_id = business['id']
                 response = get_business(business_id) #add top 10
-                response = {'name':response.get('name'), 'urlname':response.get('name').replace(" ","+"), 'location':response.get('location').get('coordinate'),
+                response = {'name':response.get('name'), 'urlname':response.get('name').replace(" ", "+"),
+                            'location':response.get('location').get('coordinate'),
                 'rating':response.get('rating'),'numratings':response.get('review_count'),
                 'url':response.get('url'),'categories':response.get('categories')}
                 results.append(response)

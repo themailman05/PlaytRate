@@ -54,7 +54,7 @@ def results():
 def analyze():
     name = request.args['name']
     businessinfo = yelp_api.getBusinessDetail(name)
-    print "BUSINESSINFO: " +str(businessinfo)
+    #print "BUSINESSINFO: " +str(businessinfo)
     location = {'lat':businessinfo['location']['coordinate']['latitude'],'long':businessinfo['location']['coordinate']['longitude']}
     readablename = businessinfo['name']
     yelpstars = businessinfo['rating']
