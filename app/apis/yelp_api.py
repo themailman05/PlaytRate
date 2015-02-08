@@ -127,10 +127,23 @@ def query_api(term, location):
 
     return results
 
-"""
+def shortsearch(term,location):
+    """short search method to find businesses in area"""
+    results = search(term,location)['businesses']
+    result = []
+    for business in results:
+        result.append([business['id'],business['name']])
+    return result
+
+def getBusinessDetail(id):
+    businessinfo = get_business(id)
+    return businessinfo
+
+
 def main():
-   query_api("Pizza","Harrisonburg, VA")
+   #query_api("Pizza","Harrisonburg, VA")
+   print shortsearch("Pizza","Harrisonburg")
 
 if __name__ == "__main__":
    main()
-"""
+

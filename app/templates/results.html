@@ -3,16 +3,13 @@
 
 {% block content %}
   <div id = "results">
-  <h1>Here are your results</h1>
-     <ul class = "resultslist"> 
+  <h1>Results in {{ location }}</h1>
+     <ul class = "resultslist">
      {% for result in searchresults %} <!--FIX QUERY ONCE API IS TALKING-->
-     {% set query = "/analyze?name="+ result.urlname + "&lat=" + result.location.latitude|string
-             + "&long="+ result.location.longitude|string %}
-       <li><a href={{query}}>{{result.name}} - Yelp rating: {{ result.rating }}</a>
-
+       {% set query = "/analyze?name="+ result[0] %} <!--+ "&location="+ location %}-->
+         <li><a href={{query}}>{{ result[1] }}</a></li>
      {% endfor %}
-    
-  </div> 
+  </div>
   </body>
 </html> 
-{% endblock %} 
+{% endblock %} +

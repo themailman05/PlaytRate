@@ -31,7 +31,6 @@ def search():
     if form.validate_on_submit():
         flash('Search requested for query="%s", location="%s"' %
              (form.searchquery.data, form.location.data))
-
         return redirect('/results')
     return render_template('search.html',
                            title='Search',
@@ -39,15 +38,16 @@ def search():
 
 @app.route('/results', methods=['GET','POST'])
 def results():
-    searchresults= yelp_api.query_api(request.form['searchquery'],request.form['location'])
+    searchresults= yelp_api.shortsearch(request.form['searchquery'],request.form['location'])
     return render_template('results.html',
-                           searchresults=searchresults)
+                           searchresults=searchresults,
+                           location=request.form['location'])
 
 @app.route('/analyze', methods=['GET'])
 def analyze():
     name = request.args['name']
     readablename = request.args['name'].replace('+',' ')
-    print(name)
+    businessinfo = yelp_api.getBusinessDetail(name)
     location = {'lat':request.args['lat'],'long':request.args['long']}
     print ("SEARCHED LOCATION IS " + str(location) + "NAME IS :" + name)
     if dbchatter.BallExists(name,location):    #do not analyze if in database
