@@ -98,34 +98,32 @@ def submitDB(subname, sublocation, detail, subtweets, subresult, yelpstars, revi
     rankscore = subresult.get('score')
     ranktype=subresult.get('targeted')
 
-    pleytscore=calculateRating(rankscore, posneg)
+    pleytstars=calculateRating(rankscore)
 
     sub = models.TwitterBall(name=subname, yelpid=yelpid, siteURL=siteURL, lat=sublocation['lat'],
                              long=sublocation['long'], locname=detail,
                              tweets=subtweets, posneg=posneg, rankscore=rankscore,
                              ranktype=ranktype, yelpstars=yelpstars, yelpcount=reviewcount,
-                             pleytscore=pleytscore)
+                             pleytstars=pleytstars)
     db.session.add(sub)
     db.session.commit()
 
-def calculateRating(posneg, rankscore=float()):
+def calculateRating(rankscore=float()):
     """
     Calculates pleytscore for database
     :param rankscore:
     :param posneg:
     :return:
     """
-    initscore = float(rankscore)
+    initscore = abs(float(rankscore))
     score = 2.5
     ratio = 1.0/2.5
     change = initscore*ratio
 
-    if not posneg == 'neutral':
-        if posneg == 'positive':
-            score += change
-        elif posneg == 'negative':
-            score -= change
+    score = score + change
+
     return score
+
 
 
 

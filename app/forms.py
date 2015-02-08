@@ -1,5 +1,5 @@
 from flask.ext.wtf import Form
-from wtforms import StringField, IntegerField, BooleanField
+from wtforms import StringField
 from wtforms.validators import DataRequired
 
 class SearchAreaForLocations(Form):
