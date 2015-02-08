@@ -12,7 +12,7 @@ import time
 
 HOST = 'http://api.sandbox.yellowapi.com'
 API_KEY = '9xk456gspvxxqpr9nugmaumq'
-UNIQUE_ID = 'moothfeel'
+UNIQUE_ID = 'pleyt'
 FMT = 'JSON'
 SEARCH_LIMIT = 10
 
@@ -38,15 +38,18 @@ def search(term, location):
       response = json.loads(conn.read())
    finally:
       conn.close()
-
+   
+   return response
+"""
+def get_relevent_business_info(term, location):
    results = []
-   listings = response['listings']
+   listings = search(term,location)['listings']
    for listing in listings:
        b_info = get_business_info(listing['name'],listing['id'],listing['address']['prov'])
        relevant_info = { 'name':b_info['name'], 'urlname':b_info['name'].replace(" ","+"),'location':b_info['geoCode'],'rating':0,'numratings':0,'url':b_info['merchantUrl'],'categories':b_info['categories'] }
        results.append(relevant_info)
    return results
-
+"""
 def get_business_info(name, uniqueid, prov):
 
    url = HOST +\
@@ -65,13 +68,17 @@ def get_business_info(name, uniqueid, prov):
       conn.close()
 
    return response
-      
+
+def shortsearch(term,location):
+    """short search method to find businesses in area"""
+    results = search(term,location)['businesses']
+    result = []
+    for business in results['listings']:
+        result.append([business['id'],business['name']])
+    return result
 
 def main():
-   result = search("Pizza","Montreal")
-   business = result.get('listings')[0]
-   time.sleep(3)
-   print get_business_info(business.get('name'),business.get('id'),business.get['address']['prov'])
+   print get_relevent_business_info("Pizza","Montreal")
 
 if __name__ == "__main__":
    main() 
