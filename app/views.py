@@ -14,6 +14,10 @@ decoder = json.JSONDecoder
 @app.route('/index')
 def index():
     form = SearchAreaForLocations()
+    if form.validate_on_submit():
+        flash('Search requested for query="%s", location="%s"' %
+             (form.searchquery.data, form.location.data))
+        return redirect('/results')
     if dbchatter.getNumRows() > 4:
         return render_template('index.html',
                                title='Home',
