@@ -1,4 +1,21 @@
+title {
+    text-align: center
+}
+
 body {
-    background-color:dimgrey;
+    background-color:#EEEEEE;
     font-family: 'Droid Sans', sans-serif;
 }
+
+h3 {
+    text-align: center
+}
+
+h1 {
+    text-align: center
+}
+
+.buttonsBar {
+	    margin:auto 0px auto 0px
+}
+
