@@ -19,7 +19,7 @@ def index():
     if dbchatter.getNumRows() > 4:
         return render_template('index.html',
                                title='Home',
-                               recent=dbchatter.getRandomEntries(5),
+                               recent=dbchatter.getRecentEntries(5),
                                form=form)
 
     else:
@@ -63,16 +63,16 @@ def analyze():
     if dbchatter.BallExists(name):    #do not analyze if in database
         return render_template('analysis.html',
                                name=readablename,
-                               twitterball=dbchatter.getTwitterBall(name, location),
+                               twitterball=dbchatter.getTwitterBall(name),
                                yelpstars=yelpstars,
                                reviewcount=reviewcount)
     else:
         result = analyzer.analyze(readablename,location,yelpstars,reviewcount,siteURL,name)
         if result == "ERROR":
             flash('Not enough tweets for '+ readablename + ', try a new location.')
-            return redirect('/search')
+            return redirect('/index')
         else:
-            twiball = dbchatter.getTwitterBall(name,location)
+            twiball = dbchatter.getTwitterBall(name)
             return render_template('analysis.html',
                                    name=readablename,
                                    twitterball=twiball)

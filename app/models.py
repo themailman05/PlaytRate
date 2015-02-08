@@ -18,7 +18,7 @@ class TwitterBall(db.Model):
     long = db.Column(db.Float(), index=True)
     locname = db.Column(db.String(30),index=True)
     tweets = db.Column(db.String(3000))
-    ranking = db.Column(db.String(20))
+    posneg = db.Column(db.String(20))
     rankscore = db.Column(db.Float())
     ranktype = db.Column(db.Boolean())
     yelpstars = db.Column(db.Float())
