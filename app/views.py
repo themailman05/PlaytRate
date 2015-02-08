@@ -2,6 +2,7 @@ from flask import render_template, flash, redirect, jsonify, request
 from app import app, db, models
 from .forms import SearchAreaForLocations
 from apis import yelp_api
+from apis import yellow_api
 import json
 from apis import dbchatter, analyzer
 
