@@ -133,7 +133,7 @@ def calculateRating(rankscore):
     """
     initscore = abs(float(rankscore))
     score = 2.5
-    ratio = 1.0/2.5
+    ratio = 2.5/1.0
     change = initscore*ratio
 
     score = score + change

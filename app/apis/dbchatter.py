@@ -28,14 +28,14 @@ def getRecentEntries(numresults):
     entries = getNumRows()
     results = set()
     for ii in range(entries,entries-numresults,-1):
-        ball = getTwitterBallById(str(id))
+        ball = getTwitterBallById(ii)
         results.add(ball)
     return results
 
 
 
 def main():
-    print getTwitterBallById(6)
+    print getRecentEntries(5)
 
 if __name__ == "__main__":
     main()
