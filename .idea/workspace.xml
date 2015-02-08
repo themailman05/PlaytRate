@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f54cbd30-8423-496a-8395-53dc0834af7a" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/templates/index.html" afterPath="$PROJECT_DIR$/app/templates/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views.py" afterPath="$PROJECT_DIR$/app/views.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="mouthfeel.iws" />
@@ -673,7 +671,11 @@
       <created>1423360632139</created>
       <updated>1423360632139</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Put form on homepage&#10;">
+      <created>1423361516357</created>
+      <updated>1423361516357</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -730,7 +732,8 @@
     <MESSAGE value="Oh god please don't blow up" />
     <MESSAGE value="Rewriting analyzer and views to work faster/more efficiently" />
     <MESSAGE value="more refactoring" />
-    <option name="LAST_COMMIT_MESSAGE" value="more refactoring" />
+    <MESSAGE value="Put form on homepage&#10;" />
+    <option name="LAST_COMMIT_MESSAGE" value="Put form on homepage&#10;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
