@@ -1,11 +1,9 @@
 from flask import render_template, flash, redirect, jsonify, request
 from app import app, db, models
 from .forms import SearchAreaForLocations
-from apis import yellow_api
 from apis import yelp_api
 import json
 from apis import dbchatter, analyzer
-from pprint import pprint
 
 
 decoder = json.JSONDecoder
@@ -14,6 +12,10 @@ decoder = json.JSONDecoder
 @app.route('/index')
 def index():
     form = SearchAreaForLocations()
+    if form.validate_on_submit():
+        flash('Search requested for query="%s", location="%s"' %
+             (form.searchquery.data, form.location.data))
+        return redirect('/results')
     if dbchatter.getNumRows() > 4:
         return render_template('index.html',
                                title='Home',
@@ -51,16 +53,21 @@ def results():
 @app.route('/analyze', methods=['GET'])
 def analyze():
     name = request.args['name']
-    print name
-    readablename = request.args['name'].replace('+',' ')
     businessinfo = yelp_api.getBusinessDetail(name)
+    print "BUSINESSINFO: " +str(businessinfo)
     location = {'lat':businessinfo['location']['coordinate']['latitude'],'long':businessinfo['location']['coordinate']['longitude']}
-    if dbchatter.BallExists(name,location):    #do not analyze if in database
+    readablename = businessinfo['name']
+    yelpstars = businessinfo['rating']
+    reviewcount = businessinfo['review_count']
+    siteURL = businessinfo['url']
+    if dbchatter.BallExists(name):    #do not analyze if in database
         return render_template('analysis.html',
                                name=readablename,
-                               twitterball=dbchatter.getTwitterBall(name, location))
+                               twitterball=dbchatter.getTwitterBall(name, location),
+                               yelpstars=yelpstars,
+                               reviewcount=reviewcount)
     else:
-        result = analyzer.analyze(readablename,location)
+        result = analyzer.analyze(readablename,location,yelpstars,reviewcount,siteURL,name)
         if result == "ERROR":
             flash('Not enough tweets for '+ readablename + ', try a new location.')
             return redirect('/search')

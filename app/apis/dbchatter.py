@@ -13,8 +13,8 @@ def getTwitterBallById(id):
     return res
 
 
-def BallExists(name, location=dict()):
-    if models.TwitterBall.query.filter_by(name=name).first():
+def BallExists(yelpid):
+    if models.TwitterBall.query.filter_by(yelpid=yelpid).first():
         return True
     else:
         return False

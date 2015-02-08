@@ -12,6 +12,8 @@ class SearchResult(db.Model):
 class TwitterBall(db.Model):
     id = db.Column(db.Integer(), primary_key=True, autoincrement=1)
     name = db.Column(db.String(100), index=True)
+    yelpid = db.Column(db.String(100),index=True)
+    siteURL= db.Column(db.String(100),index=True)
     lat = db.Column(db.Float(), index=True)
     long = db.Column(db.Float(), index=True)
     locname = db.Column(db.String(30),index=True)
@@ -19,6 +21,9 @@ class TwitterBall(db.Model):
     ranking = db.Column(db.String(20))
     rankscore = db.Column(db.Float())
     ranktype = db.Column(db.Boolean())
+    yelpstars = db.Column(db.Float())
+    yelpcount= db.Column(db.Integer())
+    pleytstars= db.Column(db.Float())
 
     def __repr__(self):
         return '<TwitterBall for {0}>'.format(self.name)
