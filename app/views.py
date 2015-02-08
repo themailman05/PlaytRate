@@ -16,12 +16,11 @@ def index():
         flash('Search requested for query="%s", location="%s"' %
              (form.searchquery.data, form.location.data))
         return redirect('/results')
-    if dbchatter.getNumRows() > 4:
+    if dbchatter.getNumRows() > 5:
         return render_template('index.html',
                                title='Home',
                                recent=dbchatter.getRecentEntries(5),
                                form=form)
-
     else:
         return render_template('index.html',
                                title='Home',
