@@ -4,19 +4,19 @@ body {
 
 
 .header {
-   color:#EEEEEE
-   background-color:#59ABE3
-   margin-left:25%
-   width:50%
-   height:6em
+   color:#EEEEEE;
+   background-color:#59ABE3;
+   margin-left:25%;
+   width:50%;
+   height:6em;
    border-radius:40px
 }
 
 div.header h1 {
-    text-align:center
-    padding-top:7px
+    text-align:center;
+    padding-top:7px;
 }
 
 div.header h4 {
-    text-align:center
+    text-align:center;
 }
