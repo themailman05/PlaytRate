@@ -133,7 +133,7 @@ def shortsearch(term,location):
     results = search(term,location)['businesses']
     result = []
     for business in results:
-        result.append([business['id'],business['name']])
+        result.append([business['id'],business['name'],"Yelp"])
     return result
 
 def getBusinessDetail(id):
