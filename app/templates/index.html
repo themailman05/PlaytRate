@@ -31,7 +31,7 @@
    <div id = 'recent'>
      <h4 style = "text-align:center">Here is a list of some random results we have calculated:</h4>
          {% for twitterball in recent %}
-         <div><p style = "text-align:center">{{twitterball.name }} in {{ twitterball.location }} is rated {{twitterball.ranking}} based on people's tweets.</p>
+         <div><p style = "text-align:center">{{twitterball.name }} in {{ twitterball.locname }} is rated {{"%.1f"|format(twitterball.pleytstars)}} stars based on people's tweets.</p>
          {% endfor %}
    {% endif %}
 {% endblock %}
