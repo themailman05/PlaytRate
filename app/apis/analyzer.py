@@ -29,10 +29,7 @@ T_ACCESS_SECRET = '5ZdfmM2YxKEGCjmvOFGKWq5Sz6YATr1V7zbI8cYDWja48'
 T_WEB_SEARCH_URL = 'https://www.twitter.com/search/?q='
 
 
-def analyze(name, location):
-
-
-
+def analyze(name, location, yelpstars, reviewcount, siteURL, yelpid):
     auth = tweepy.OAuthHandler(T_CONSUMER_KEY, T_CONSUMER_SECRET)
     auth.set_access_token(T_ACCESS_TOKEN, T_ACCESS_SECRET)
 
@@ -41,7 +38,7 @@ def analyze(name, location):
     place_id = api.reverse_geocode(location['lat'],location['long'])[0].id
     detail = api.geo_id(place_id).full_name
 
-    if not BallExists(name,detail):
+    if not BallExists(yelpid):
 
         print "Details of geocode " + str(detail)
 
@@ -79,16 +76,17 @@ def analyze(name, location):
             final_result['targeted'] = True
         print final_result
 
-        submitDB(name, location, detail, tweet_texts, final_result)
+        submitDB(name, location, detail, tweet_texts, final_result,yelpstars,reviewcount,siteURL,yelpid)
 
         return final_result
     else:
         return False
 
-def submitDB(subname, sublocation, detail, subtweets, subresult=dict()):
+def submitDB(subname, sublocation, detail, subtweets, subresult,yelpstars, reviewcount, siteURL,yelpid):
     sub = models.TwitterBall(name=subname,lat=sublocation['lat'], long=sublocation['long'], locname=detail,
                              tweets=subtweets,ranking=subresult.get('type'),rankscore=subresult.get('score'),
-                             ranktype=subresult.get('targeted'))
+                             ranktype=subresult.get('targeted'),yelpstars=yelpstars,yelpcount=reviewcount,
+                             siteURL=siteURL,yelpid=yelpid)
     db.session.add(sub)
     db.session.commit()
 
