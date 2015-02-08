@@ -2,10 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f54cbd30-8423-496a-8395-53dc0834af7a" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/apis/analyzer.py" afterPath="$PROJECT_DIR$/app/apis/analyzer.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/apis/dbchatter.py" afterPath="$PROJECT_DIR$/app/apis/dbchatter.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models.py" afterPath="$PROJECT_DIR$/app/models.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views.py" afterPath="$PROJECT_DIR$/app/views.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="mouthfeel.iws" />
@@ -694,7 +690,11 @@
       <created>1423364212549</created>
       <updated>1423364212549</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="so much logic&#10;so many tables">
+      <created>1423366680545</created>
+      <updated>1423366680545</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -754,7 +754,8 @@
     <MESSAGE value="Put form on homepage&#10;" />
     <MESSAGE value="MOAR LOGIC" />
     <MESSAGE value="whoa nelly&#10;" />
-    <option name="LAST_COMMIT_MESSAGE" value="whoa nelly&#10;" />
+    <MESSAGE value="so much logic&#10;so many tables" />
+    <option name="LAST_COMMIT_MESSAGE" value="so much logic&#10;so many tables" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
