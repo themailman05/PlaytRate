@@ -17,13 +17,13 @@
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
     <link href='http://fonts.googleapis.com/css?family=Droid+Sans' rel='stylesheet' type='text/css'>
-    
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     
   </head>
-  <body background-color = #EEEEEE>
-   <div class = header style = "background-color:#59ABE3;color:#EEEEEE; margin-left:25%; width:50%; height:6em; border-radius:40px;">
-    <h1 style="text-align:center;padding-top:7px" >Pleyt</h1> 
-    <h4 style="text-align:center"> Search for Restaurants!</h4>
+  <body>
+   <div class = header>
+    <h1>Pleyt</h1> 
+    <h4> Search for Restaurants!</h4>
    </div>
   {% with messages = get_flashed_messages() %}
      {% if messages %}

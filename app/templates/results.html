@@ -2,10 +2,10 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <div id = "results">
-  <h1>Results in {{ location }}</h1>
+  <div id = "results" style="text-align:center; padding-top:10px">
+  <h1 style="text-align:center">Results in {{ location }}</h1>
      <ul class = "resultslist">
-     {% for result in searchresults %} <!--FIX QUERY ONCE API IS TALKING-->
+     {% for result in searchresults %}
        {% set query = "/analyze?name="+ result[0] %} <!--+ "&location="+ location %}-->
          <li><a href={{query}}>{{ result[1] }}</a></li>
      {% endfor %}
