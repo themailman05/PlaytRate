@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
+   <script src="static/pleytmaths.js"></script>
    <section class = 'results'>
       <h2>Here's what people are saying about {{ name }}!</h2>
    </section>
@@ -14,7 +15,9 @@
          <p>Score is based on general sentiments discovered in tweets.</p>
        {% endif %}
 
+   <script class="pleytmaths">pleytmaths({{ twitterball.pleytstars }})</script>
    <h1>THE TWEEPLE HAVE SPOKEN!</h1>
+
 
     </div>
 {% endblock %}
