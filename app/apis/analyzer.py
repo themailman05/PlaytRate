@@ -1,4 +1,5 @@
 #!flask/bin/python
+# -*- coding: utf-8 -*-
 """
 
 Sentiment Analyzer that reads twitter feeds
@@ -17,6 +18,7 @@ from app import db, models
 import yelp_api
 import yellow_api
 from dbchatter import getTwitterBall, BallExists
+import re
 
 from alchemyapi_python import alchemyapi
 
@@ -38,9 +40,19 @@ def analyze(name, location, yelpstars, reviewcount, siteURL, yelpid):
     place_id = api.reverse_geocode(location['lat'],location['long'])[0].id
     detail = api.geo_id(place_id).full_name
 
+    print detail
+
     if not BallExists(yelpid):
 
-        search_url = T_WEB_SEARCH_URL + 'place%3A'+place_id+'%20%22'+urllib.quote(name)+'%22'
+        tempname=name.lower()
+
+        tempname.replace(' restaurant ', ' ')
+        tempname.replace(' ristorante ', ' ')
+        tempname.replace(' bakery ', ' ')
+        tempname.replace('\'', '')
+
+
+        search_url = T_WEB_SEARCH_URL + 'place%3A'+place_id+'%20%22'+urllib.quote(tempname)+'%22'
 
         page = urllib2.urlopen(search_url)
         html = page.read()
@@ -50,6 +62,7 @@ def analyze(name, location, yelpstars, reviewcount, siteURL, yelpid):
         tweet_texts = ""
         for i in range(len(tweets)):
             tweet_texts = tweet_texts + tweets[i].get_text().encode('ascii', 'ignore') + '\n'
+        tweet_texts = re.sub(r'''(?i)\b((?:https?://|www\d{0,3}[.]|[a-z0-9.\-]+[.][a-z]{2,4}/)(?:[^\s()<>]+|\(([^\s()<>]+|(\([^\s()<>]+\)))*\))+(?:\(([^\s()<>]+|(\([^\s()<>]+\)))*\)|[^\s`!()\[\]{};:'".,<>?“”‘’]))''', '', tweet_texts, flags=re.MULTILINE)
 
         alchy = alchemyapi.AlchemyAPI()
 
@@ -98,7 +111,10 @@ def submitDB(subname, sublocation, detail, subtweets, subresult, yelpstars, revi
     rankscore = subresult.get('score')
     ranktype=subresult.get('targeted')
 
-    pleytstars=calculateRating(rankscore)
+    if rankscore is not None:
+        pleytstars=calculateRating(rankscore)
+    else:
+        pleytstars=2.5
 
     sub = models.TwitterBall(name=subname, yelpid=yelpid, siteURL=siteURL, lat=sublocation['lat'],
                              long=sublocation['long'], locname=detail,
@@ -108,7 +124,7 @@ def submitDB(subname, sublocation, detail, subtweets, subresult, yelpstars, revi
     db.session.add(sub)
     db.session.commit()
 
-def calculateRating(rankscore=float()):
+def calculateRating(rankscore):
     """
     Calculates pleytscore for database
     :param rankscore:
