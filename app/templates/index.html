@@ -4,6 +4,19 @@
       <h4>While most websites rely on customer-provided reviews to rank quality, MouthFeel relies on sentiment analysis to find out what people are actually SAYING about restaurants.</h4>
       <p>Go ahead, give us a taste.</p>
    </section>
+     <h1> Search for Restaurants!</h1>
+  <form id="search" action="{{ url_for('results') }}" method="post" name="search">
+     {{ form.hidden_tag() }}
+     <p>
+        Please enter a location:<br>
+        {{ form.location(size=80) }}<br>
+     </p>
+     <p>
+        Please enter a search query:<br>
+        {{ form.searchquery(size=80) }}<br>
+     </p>
+     <p><input type="submit" value="GO!"></p>
+  </form>
    {% if recent %}
    <div id = 'recent'>
      <h4>Here is a list of some random results we have calculated:</h4>

@@ -13,13 +13,17 @@ decoder = json.JSONDecoder
 @app.route('/')
 @app.route('/index')
 def index():
+    form = SearchAreaForLocations()
     if dbchatter.getNumRows() > 4:
         return render_template('index.html',
                                title='Home',
-                               recent=dbchatter.getRandomEntries(5))
+                               recent=dbchatter.getRandomEntries(5),
+                               form=form)
+
     else:
         return render_template('index.html',
-                               title='Home')
+                               title='Home',
+                               form=form)
 
 
 @app.route("/getip", methods=["GET"])
