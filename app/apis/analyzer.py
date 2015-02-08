@@ -74,13 +74,13 @@ def analyze(name, location, yelpstars, reviewcount, siteURL, yelpid):
             final_result['targeted'] = True
         print final_result
 
-        submitDB(name, location, detail, tweet_texts, final_result,yelpstars,reviewcount,siteURL,yelpid)
+        submitDB(name, location, detail, tweet_texts, final_result, yelpstars, reviewcount, siteURL, yelpid)
 
         return final_result
     else:
         return False
 
-def submitDB(subname, sublocation, detail, subtweets, subresult,yelpstars, reviewcount, siteURL,yelpid):
+def submitDB(subname, sublocation, detail, subtweets, subresult, yelpstars, reviewcount, siteURL, yelpid):
     """
     A function for adding an entire TwitterBall object to the database.
     :param subname:
@@ -98,25 +98,27 @@ def submitDB(subname, sublocation, detail, subtweets, subresult,yelpstars, revie
     rankscore = subresult.get('score')
     ranktype=subresult.get('targeted')
 
-    pleytscore=calculateRating(rankscore,posneg)
+    pleytscore=calculateRating(rankscore, posneg)
 
-    sub = models.TwitterBall(name=subname, lat=sublocation['lat'], long=sublocation['long'], locname=detail,
+    sub = models.TwitterBall(name=subname, yelpid=yelpid, siteURL=siteURL, lat=sublocation['lat'],
+                             long=sublocation['long'], locname=detail,
                              tweets=subtweets, posneg=posneg, rankscore=rankscore,
                              ranktype=ranktype, yelpstars=yelpstars, yelpcount=reviewcount,
-                             siteURL=siteURL, yelpid=yelpid, pleytscore=pleytscore)
+                             pleytscore=pleytscore)
     db.session.add(sub)
     db.session.commit()
 
-def calculateRating(rankscore, posneg):
+def calculateRating(posneg, rankscore=float()):
     """
     Calculates pleytscore for database
     :param rankscore:
-    :param posneg: 
+    :param posneg:
     :return:
     """
+    initscore = float(rankscore)
     score = 2.5
-    ratio = 1/2.5
-    change = rankscore*ratio
+    ratio = 1.0/2.5
+    change = initscore*ratio
 
     if not posneg == 'neutral':
         if posneg == 'positive':
