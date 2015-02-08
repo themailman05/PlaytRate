@@ -13,29 +13,18 @@
     <title>Pleyt</title>
     {% endif %}
 
+
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
     <link href='http://fonts.googleapis.com/css?family=Droid+Sans' rel='stylesheet' type='text/css'>
-
+    
+    
   </head>
   <body background-color = #EEEEEE>
-   <div class="container">
-
-      <div class="starter-template">
-        <h1 style="text-align:center" >Pleyt</h1>
-        <h3 style="text-align:center" >Pleyt is a powerful tool for finding good food near you.</h3><br/>
-         <div class='row'>
-          <div class='col-md-3'></div>
-          <div class='col-md-3'>
-             <a href='/index'><button type="button" class="btn btn-lg btn-primary" style="float:right">HOME</button></a>
-          </div>
-          <div class='col-md-3'>
-             <a href='/search'><button type="button" class="btn btn-lg btn-primary" style="float:left">SEARCH</button></a>
-          </div>
-          <div class='col-md-3'></div>
-          </div>
-      </div>
-    </div>  
+   <div class = header style = "background-color:#59ABE3;color:#EEEEEE; margin-left:25%; width:50%; height:6em; border-radius:40px;">
+    <h1 style="text-align:center;padding-top:7px" >Pleyt</h1> 
+    <h4 style="text-align:center"> Search for Restaurants!</h4>
+   </div>
   {% with messages = get_flashed_messages() %}
      {% if messages %}
        <ul>

@@ -3,10 +3,10 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <h1> Search for Restaurants!</h1>
+  <h1 style="text-align:center"> Search for Restaurants!</h1>
   <form id="search" action="{{ url_for('results') }}" method="post" name="search">
      {{ form.hidden_tag() }}
-     <p>
+     <p style="text-align:center">
         Please enter a location:<br>
         {{ form.location(size=80) }}<br>
      </p>

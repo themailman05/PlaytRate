@@ -1,27 +1,36 @@
 {% extends "base.html" %}
-{% block content %}
-   <section class = 'about'>
-      <h4>While most websites rely on customer-provided reviews to rank quality, MouthFeel relies on sentiment analysis to find out what people are actually SAYING about restaurants.</h4>
-      <p>Go ahead, give us a taste.</p>
-   </section>
-     <h1> Search for Restaurants!</h1>
+{% block content %} 
   <form id="search" action="{{ url_for('results') }}" method="post" name="search">
      {{ form.hidden_tag() }}
-     <p>
-        Please enter a location:<br>
+     <p style="text-align:center; padding-top:10px">
+        Enter a location:<br>
         {{ form.location(size=80) }}<br>
      </p>
-     <p>
-        Please enter a search query:<br>
+     <p style="text-align:center">
+        Enter a search query:<br>
         {{ form.searchquery(size=80) }}<br>
      </p>
-     <p><input type="submit" value="GO!"></p>
+
+   <div class='row'>
+    <div class='col-md-3'></div>
+    <div class='col-md-3'>
+     <a href='/index'><button type="button" class="btn btn-lg btn-primary" style="background-color:#59ABE3;color:#EEEEEE;float:right">HOME</button></a>
+    </div>
+    <div class='col-md-3'>
+      <input type="submit" class="btn btn-lg btn-primary" style="float:left;background-color:#59ABE3;color:#EEEEEEE">
+    </div>
   </form>
+    <div class='col-md-3'></div>
+   </div>
+   <h3 style="text-align:center" >Pleyt is a powerful tool for finding good food near you.</h3><br/>
+
    {% if recent %}
    <div id = 'recent'>
-     <h4>Here is a list of some random results we have calculated:</h4>
+     <h4 style = "text-align:center">Here is a list of some random results we have calculated:</h4>
          {% for twitterball in recent %}
-         <div><p>{{twitterball.name }} in {{ twitterball.location }} is rated {{twitterball.ranking}} based on people's tweets.</p>
+         <div><p style = "text-align:center">{{twitterball.name }} in {{ twitterball.location }} is rated {{twitterball.ranking}} based on people's tweets.</p>
          {% endfor %}
    {% endif %}
 {% endblock %}
+      <h4 style = "text-align:center">While most websites rely on customer-provided reviews to rank quality, MouthFeel relies on sentiment analysis to find out what people are actually SAYING about restaurants.</h4>
+      <p style="text-align:center">Go ahead, give us a taste.</p>
