@@ -16,11 +16,12 @@
     <div class='col-md-3'> 
       <input type="submit" class="btn btn-lg btn-primary" style="float:right;background-color:#59ABE3;color:#EEEEEEE">
     </div>
+
     <div class='col-md-3'> 
       <a href='/about'><button type="button" class="btn btn-lg btn-primary" style="background-color:#59ABE3;color:#EEEEEE;float:left">About</button></a>
     </div>
     <div class='col-md-3'></div>
-   </div> 
+   </div>
    <br/>
    <p style="text-align:center">
     {{ form.yp() }} Check to include Yellow Pages (Canada) results
@@ -35,6 +36,8 @@
          <div><p style = "text-align:center">{{twitterball.name }} in {{ twitterball.locname }} is rated {{"%.1f"|format(twitterball.pleytstars)}} stars based on people's tweets.</p>
          {% endfor %}
    {% endif %}
+          <h4 style = "text-align:center">While most websites rely on customer-provided reviews to rank quality, PlaytRate relies on social media mining and sentiment analysis to find out what people are actually saying about restaurants.</h4>
+
+
+
 {% endblock %}
-      <h4 style = "text-align:center">While most websites rely on customer-provided reviews to rank quality, MouthFeel relies on sentiment analysis to find out what people are actually SAYING about restaurants.</h4>
-      <p style="text-align:center">Go ahead, give us a taste.</p>

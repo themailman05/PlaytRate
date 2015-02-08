@@ -131,10 +131,10 @@ def calculateRating(rankscore):
     :param posneg:
     :return:
     """
-    initscore = abs(float(rankscore))
+    initscore = float(rankscore)
     score = 2.5
-    ratio = 2.5/1.0
-    change = initscore*ratio
+    change = initscore*2.5
+
 
     score = score + change
 
