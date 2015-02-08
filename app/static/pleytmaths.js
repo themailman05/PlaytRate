@@ -13,7 +13,7 @@ function show_image(src, width, height, alt) {
     document.body.appendChild(img);
 }
 
-function pleytmaths(score){
+function playtmaths(score){
     var names = ['static/img/pleyt1.png',
              'static/img/pleyt2.png',
              'static/img/pleyt3.png',

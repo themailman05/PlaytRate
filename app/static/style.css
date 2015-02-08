@@ -32,6 +32,10 @@ div.header h4 {
     margin:0px auto;
 }
 
+#results {
+    width:800px;
+    margin:0px auto;
+}
 
 body.about p {
      margin-left:10%;
@@ -42,11 +46,24 @@ body.about h1 {
     text-align:center;
 }
 
-.pleytmaths {
+.playtmaths {
     text-align:center;
     clear:both;
     padding-top:25px;
     border:12px solid black;
     border-radius:25px;
     margin:0px auto;
+}
+
+img {
+    margin:0px auto;
+}
+
+.footer{
+    margin:0px auto;
+    text-align:center;
+}
+
+body img {
+    text-align: center;
 }

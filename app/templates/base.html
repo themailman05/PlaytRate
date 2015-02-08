@@ -8,9 +8,9 @@
     <meta name="author" content="">
     
     {% if title %}
-    <title>PLEYT - {{Home}}</title>
+    <title>PlaytRate - {{Home}}</title>
     {% else %}
-    <title>PLEYT</title>
+    <title>PlaytRate</title>
     {% endif %}
 
 
@@ -21,8 +21,9 @@
     
   </head>
   <body>
+  <div id="wrapper">
    <div class = "header">
-    <h1>Pleyt</h1>
+    <h1>PlaytRate</h1>
     <h4>...right on the tip of your tongue.</h4>
    </div>
   {% with messages = get_flashed_messages() %}
@@ -35,13 +36,15 @@
      {% endif %}
    {% endwith %}
    {% block content %}{% endblock %}
-  </body>
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-    <script src="../../dist/js/bootstrap.min.js"></script>
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
-  </body>
+  <hr style="color:black">
+  </div>
+    <footer class="footer">
+        <div id="wrap">
+        <div id="main" class="container clear-top">
+            <div> &copy; Liam Sargent & Dave McVicar, 2015</div>
+            <div>Powered by <a href="http://www.alchemyapi.com"><img src="data:image/png;base64,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" width="100px"></a></div>
+        </div>
+        </div>
+    </footer>
+
 </html>

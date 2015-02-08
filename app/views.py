@@ -39,19 +39,25 @@ def about():
 
 @app.route('/results', methods=['GET','POST'])
 def results():
-    searchresults = yelp_api.shortsearch(request.form['searchquery'],request.form['location'])
-    if request.form['yp']:
-        searchresults.extend(yellow_api.shortsearch(request.form['searchquery'],request.form['location']))
+    queryresults = []
+    for result in request.form:
+        queryresults.append(result)
+    params = [request.form['searchquery'],request.form['location']]
+    searchresults = yelp_api.shortsearch(params[0], params[1])
+    print searchresults
+    if len(queryresults)==4:
+        searchresults.extend(yellow_api.shortsearch(params[0], params[1]))
     return render_template('results.html',
                            searchresults=searchresults,
                            location=request.form['location'])
+
 
 @app.route('/analyze', methods=['GET'])
 def analyze():
     name = request.args['name']
     businessinfo = yelp_api.getBusinessDetail(name)
     #print "BUSINESSINFO: " +str(businessinfo)
-    location = { 'lat':businessinfo['location']['coordinate']['latitude'],'long':businessinfo['location']['coordinate']['longitude']
+    location = {'lat':businessinfo['location']['coordinate']['latitude'],'long':businessinfo['location']['coordinate']['longitude']}
     readablename = businessinfo['name']
     yelpstars = businessinfo['rating']
     reviewcount = businessinfo['review_count']
