@@ -31,16 +31,17 @@ T_WEB_SEARCH_URL = 'https://www.twitter.com/search/?q='
 
 def analyze(name, location):
 
-    if not BallExists(name,location):
 
-        auth = tweepy.OAuthHandler(T_CONSUMER_KEY, T_CONSUMER_SECRET)
-        auth.set_access_token(T_ACCESS_TOKEN, T_ACCESS_SECRET)
 
-        api = tweepy.API(auth)
+    auth = tweepy.OAuthHandler(T_CONSUMER_KEY, T_CONSUMER_SECRET)
+    auth.set_access_token(T_ACCESS_TOKEN, T_ACCESS_SECRET)
 
-        place_id = api.reverse_geocode(location['lat'],location['long'])[0].id
+    api = tweepy.API(auth)
 
-        detail = api.geo_id(place_id).full_name
+    place_id = api.reverse_geocode(location['lat'],location['long'])[0].id
+    detail = api.geo_id(place_id).full_name
+
+    if not BallExists(name,detail):
 
         print "Details of geocode " + str(detail)
 
@@ -93,7 +94,7 @@ def submitDB(subname, sublocation, detail, subtweets, subresult=dict()):
 
 
 def main():
-   print analyze("hot dog", {'lat': 40.722196, 'long': -73.987429})
+   print analyze("Tony", {'lat': 40.722196, 'long': -73.987429})
 
 
 

@@ -51,10 +51,10 @@ def results():
 @app.route('/analyze', methods=['GET'])
 def analyze():
     name = request.args['name']
-    print name
-    readablename = request.args['name'].replace('+',' ')
     businessinfo = yelp_api.getBusinessDetail(name)
     location = {'lat':businessinfo['location']['coordinate']['latitude'],'long':businessinfo['location']['coordinate']['longitude']}
+    readablename = businessinfo['name']
+    print "READABLE NAME" +readablename
     if dbchatter.BallExists(name,location):    #do not analyze if in database
         return render_template('analysis.html',
                                name=readablename,

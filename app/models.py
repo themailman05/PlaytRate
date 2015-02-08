@@ -19,6 +19,8 @@ class TwitterBall(db.Model):
     ranking = db.Column(db.String(20))
     rankscore = db.Column(db.Float())
     ranktype = db.Column(db.Boolean())
+    yelpstars = db.Column(db.Float())
+    pleytstars= db.Column(db.Float())
 
     def __repr__(self):
         return '<TwitterBall for {0}>'.format(self.name)
