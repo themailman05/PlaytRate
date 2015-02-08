@@ -4,10 +4,11 @@
       <h4>While most websites rely on customer-provided reviews to rank quality, MouthFeel relies on sentiment analysis to find out what people are actually SAYING about restaurants.</h4>
       <p>Go ahead, give us a taste.</p>
    </section>
+   {% if recent %}
    <div id = 'recent'>
-     <h4>Here is a list of the most recent searches on our site:</h4>
-         {% for result in recent %}
-         <div><p>{{result.name }} in {{ result.location }} is rated {{result.rating}} based on {{result.numratings}} reviews.</p>
+     <h4>Here is a list of some random results we have calculated:</h4>
+         {% for twitterball in recent %}
+         <div><p>{{twitterball.name }} in {{ twitterball.location }} is rated {{twitterball.ranking}} based on people's tweets.</p>
          {% endfor %}
-   c
+   {% endif %}
 {% endblock %}

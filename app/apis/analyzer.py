@@ -40,6 +40,10 @@ def analyze(name, location):
 
         place_id = api.reverse_geocode(location['lat'],location['long'])[0].id
 
+        detail = api.geo_id(place_id).full_name
+
+        print "Details of geocode " + str(detail)
+
         search_url = T_WEB_SEARCH_URL + 'place%3A'+place_id+'%20%22'+urllib.quote(name)+'%22'
 
         page = urllib2.urlopen(search_url)
@@ -74,16 +78,16 @@ def analyze(name, location):
             final_result['targeted'] = True
         print final_result
 
-        submitDB(name, location, tweet_texts, final_result)
+        submitDB(name, location, detail, tweet_texts, final_result)
 
         return final_result
     else:
         return False
 
-def submitDB(subname, sublocation, subtweets, subresult=dict()):
-    sub = models.TwitterBall(name=subname,lat=sublocation['lat'], long=sublocation['long'], tweets=subtweets,
-                             ranking=subresult.get('type'),
-                             rankscore=subresult.get('score'), ranktype=subresult.get('targeted'))
+def submitDB(subname, sublocation, detail, subtweets, subresult=dict()):
+    sub = models.TwitterBall(name=subname,lat=sublocation['lat'], long=sublocation['long'], locname=detail,
+                             tweets=subtweets,ranking=subresult.get('type'),rankscore=subresult.get('score'),
+                             ranktype=subresult.get('targeted'))
     db.session.add(sub)
     db.session.commit()
 
