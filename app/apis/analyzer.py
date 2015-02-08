@@ -40,18 +40,16 @@ def analyze(name, location, yelpstars, reviewcount, siteURL, yelpid):
 
     if not BallExists(yelpid):
 
-        print "Details of geocode " + str(detail)
-
         search_url = T_WEB_SEARCH_URL + 'place%3A'+place_id+'%20%22'+urllib.quote(name)+'%22'
 
         page = urllib2.urlopen(search_url)
         html = page.read()
 
         soup = BeautifulSoup(html)
-        tweets = soup.find_all('p','js-tweet-text')
+        tweets = soup.find_all('p', 'js-tweet-text')
         tweet_texts = ""
         for i in range(len(tweets)):
-          tweet_texts = tweet_texts + tweets[i].get_text().encode('ascii','ignore') + '\n'
+            tweet_texts = tweet_texts + tweets[i].get_text().encode('ascii', 'ignore') + '\n'
 
         alchy = alchemyapi.AlchemyAPI()
 
@@ -63,7 +61,7 @@ def analyze(name, location, yelpstars, reviewcount, siteURL, yelpid):
            final_result = alchy.sentiment('text',tweet_texts)
            type = 'general'
            print "Rerunning algo without targeted analysis. After second exec :" + str(final_result)
-           if final_result['status'] =='ERROR':
+           if final_result['status'] == 'ERROR':
                final_result="ERROR"
                return final_result
 
@@ -83,12 +81,52 @@ def analyze(name, location, yelpstars, reviewcount, siteURL, yelpid):
         return False
 
 def submitDB(subname, sublocation, detail, subtweets, subresult,yelpstars, reviewcount, siteURL,yelpid):
-    sub = models.TwitterBall(name=subname,lat=sublocation['lat'], long=sublocation['long'], locname=detail,
-                             tweets=subtweets,ranking=subresult.get('type'),rankscore=subresult.get('score'),
-                             ranktype=subresult.get('targeted'),yelpstars=yelpstars,yelpcount=reviewcount,
-                             siteURL=siteURL,yelpid=yelpid)
+    """
+    A function for adding an entire TwitterBall object to the database.
+    :param subname:
+    :param sublocation:
+    :param detail:
+    :param subtweets:
+    :param subresult:
+    :param yelpstars:
+    :param reviewcount:
+    :param siteURL:
+    :param yelpid:
+    :return:
+    """
+    posneg=subresult.get('type')
+    rankscore = subresult.get('score')
+    ranktype=subresult.get('targeted')
+
+    pleytscore=calculateRating(rankscore,posneg)
+
+    sub = models.TwitterBall(name=subname, lat=sublocation['lat'], long=sublocation['long'], locname=detail,
+                             tweets=subtweets, posneg=posneg, rankscore=rankscore,
+                             ranktype=ranktype, yelpstars=yelpstars, yelpcount=reviewcount,
+                             siteURL=siteURL, yelpid=yelpid, pleytscore=pleytscore)
     db.session.add(sub)
     db.session.commit()
+
+def calculateRating(rankscore, posneg):
+    """
+    Calculates pleytscore for database
+    :param rankscore:
+    :param posneg: 
+    :return:
+    """
+    score = 2.5
+    ratio = 1/2.5
+    change = rankscore*ratio
+
+    if not posneg == 'neutral':
+        if posneg == 'positive':
+            score += change
+        elif posneg == 'negative':
+            score -= change
+    return score
+
+
+
 
 
 def main():

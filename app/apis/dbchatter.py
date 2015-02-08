@@ -4,8 +4,8 @@ from app import db, models
 from sqlalchemy import func
 from random import randint
 
-def getTwitterBall(name, location=dict()):
-    res = models.TwitterBall.query.filter_by(name=name, lat=location['lat'], long=location['long']).first()
+def getTwitterBall(yelpid):
+    res = models.TwitterBall.query.filter_by(yelpid=yelpid).first()
     return res
 
 def getTwitterBallById(id):
@@ -24,13 +24,12 @@ def getNumRows():
     return rows
 
 
-def getRandomEntries(numentries):
-    entries = db.session.query(models.TwitterBall).count()
-    print entries
-    results = []
-    for ii in range(numentries):
-        jj = randint(1,entries)
-        results.append(getTwitterBallById(jj))
+def getRecentEntries(numresults):
+    entries = getNumRows()
+    results = set()
+    for ii in range(entries,entries-numresults,-1):
+        ball = getTwitterBallById(id)
+        results.add(ball)
     return results
 
 
