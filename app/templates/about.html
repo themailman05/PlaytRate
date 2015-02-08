@@ -1,0 +1,24 @@
+<!-- extend from base -->
+
+{% extends "base.html" %}
+
+{% block content %}
+
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+  <body class = "about">
+   <h1> About Pleyt</h1>
+   <p>
+   Pleyt, pronounced like Plate, is an app that compares yelp reviews to sentiment data from twitter. It uses business listing APIs from Yelp and Twitter, and uses the AlchemyAPI for sentiment analysis. It is written in Python and uses Flask for the backend and Bootstrap for the frontend.
+   </p>
+   <h1> How to use Pleyt</h1>
+   <p>
+    Regions can be queried just like one would perform a yelp search. Businesses can then be selected, and sentiment data is gathered and presented.
+   </p>
+   <div style="width:10%;margin-left:45%">
+   <a href='/index'><button type="button" class="btn btn-lg btn-primary" style="background-color:#59ABE3;color:#EEEEEE;width=auto">Back</button></a>
+   </div>
+
+  </body>
+{% endblock %}
+

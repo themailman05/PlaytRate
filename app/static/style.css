@@ -9,7 +9,7 @@ body {
    margin-left:25%;
    width:50%;
    height:6em;
-   border-radius:40px
+   border-radius:40px;
 }
 
 div.header h1 {
@@ -21,7 +21,11 @@ div.header h4 {
     text-align:center;
 }
 
-.resultsList {
-    margin-left = 
+body.about p {
+     margin-left:10%;
+     margin-right:10%;
+}
 
+body.about h1 {
+    text-align:center;
 }

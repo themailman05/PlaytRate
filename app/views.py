@@ -32,16 +32,10 @@ def index():
 def getip():
     return jsonify({'ip': request.environ['REMOTE_ADDR']}), 200
 
-@app.route('/search', methods=['GET', 'POST'])
-def search():
-    form = SearchAreaForLocations()
-    if form.validate_on_submit():
-        flash('Search requested for query="%s", location="%s"' %
-             (form.searchquery.data, form.location.data))
-        return redirect('/results')
-    return render_template('search.html',
-                           title='Search',
-                           form=form)
+@app.route('/about', methods=['GET'])
+def about():
+    return render_template('about.html',
+                           title='About')
 
 @app.route('/results', methods=['GET','POST'])
 def results():
