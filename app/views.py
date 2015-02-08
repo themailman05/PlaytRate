@@ -39,9 +39,9 @@ def about():
 
 @app.route('/results', methods=['GET','POST'])
 def results():
-    searchresults= yelp_api.shortsearch(request.form['searchquery'],request.form['location'])
+    searchresults = yelp_api.shortsearch(request.form['searchquery'],request.form['location'])
     if request.form['yp']:
-        searchresults.append(yellow_api.search(request.form['searchquery'],request.form['location']))
+        searchresults.extend(yellow_api.shortsearch(request.form['searchquery'],request.form['location']))
     return render_template('results.html',
                            searchresults=searchresults,
                            location=request.form['location'])
@@ -51,7 +51,7 @@ def analyze():
     name = request.args['name']
     businessinfo = yelp_api.getBusinessDetail(name)
     #print "BUSINESSINFO: " +str(businessinfo)
-    location = businessinfo['location']['coordinate']
+    location = { 'lat':businessinfo['location']['coordinate']['latitude'],'long':businessinfo['location']['coordinate']['longitude']
     readablename = businessinfo['name']
     yelpstars = businessinfo['rating']
     reviewcount = businessinfo['review_count']

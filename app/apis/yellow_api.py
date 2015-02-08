@@ -71,9 +71,9 @@ def get_business_info(name, uniqueid, prov):
 
 def shortsearch(term,location):
     """short search method to find businesses in area"""
-    results = search(term,location)['businesses']
+    results = search(term,location)['listings']
     result = []
-    for business in results['listings']:
+    for business in results:
         result.append([business['id'],business['name']])
     return result
 
