@@ -2,7 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f54cbd30-8423-496a-8395-53dc0834af7a" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/templates/base.html" afterPath="$PROJECT_DIR$/app/templates/base.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/templates/analysis.html" afterPath="$PROJECT_DIR$/app/templates/analysis.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/apis/analyzer.py" afterPath="$PROJECT_DIR$/app/apis/analyzer.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/static/pleytmaths.js" afterPath="$PROJECT_DIR$/app/static/pleytmaths.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/static/style.css" afterPath="$PROJECT_DIR$/app/static/style.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="mouthfeel.iws" />
@@ -51,8 +54,8 @@
           <file leaf-file-name="results.html" pinned="false" current="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/app/templates/results.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="-2.6666667" vertical-offset="0" max-vertical-offset="468">
-                  <caret line="4" column="29" selection-start-line="4" selection-start-column="29" selection-end-line="4" selection-end-column="29" />
+                <state vertical-scroll-proportion="0.0" vertical-offset="18" max-vertical-offset="540">
+                  <caret line="5" column="29" selection-start-line="5" selection-start-column="29" selection-end-line="5" selection-end-column="29" />
                   <folding />
                 </state>
               </provider>
@@ -61,8 +64,8 @@
           <file leaf-file-name="style.css" pinned="false" current="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/app/static/style.css">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0" vertical-offset="765" max-vertical-offset="1332">
-                  <caret line="67" column="22" selection-start-line="67" selection-start-column="22" selection-end-line="67" selection-end-column="22" />
+                <state vertical-scroll-proportion="0.0" vertical-offset="1080" max-vertical-offset="1332">
+                  <caret line="60" column="0" selection-start-line="60" selection-start-column="0" selection-end-line="60" selection-end-column="0" />
                   <folding />
                 </state>
               </provider>
@@ -71,8 +74,8 @@
           <file leaf-file-name="analysis.html" pinned="false" current="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/app/templates/analysis.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="-9.518518" vertical-offset="31" max-vertical-offset="558">
-                  <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+                <state vertical-scroll-proportion="0.0" vertical-offset="198" max-vertical-offset="576">
+                  <caret line="11" column="42" selection-start-line="11" selection-start-column="42" selection-end-line="11" selection-end-column="42" />
                   <folding />
                 </state>
               </provider>
@@ -88,11 +91,11 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="pleytmaths.js" pinned="false" current="false" current-in-tab="false">
+          <file leaf-file-name="pleytmaths.js" pinned="false" current="true" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/app/static/pleytmaths.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0" vertical-offset="594" max-vertical-offset="774">
-                  <caret line="33" column="21" selection-start-line="33" selection-start-column="21" selection-end-line="33" selection-end-column="21" />
+                <state vertical-scroll-proportion="-0.16605166" vertical-offset="270" max-vertical-offset="828">
+                  <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
                   <folding />
                 </state>
               </provider>
@@ -101,27 +104,27 @@
           <file leaf-file-name="analyzer.py" pinned="false" current="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/app/apis/analyzer.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0" vertical-offset="1894" max-vertical-offset="2664">
-                  <caret line="135" column="26" selection-start-line="135" selection-start-column="26" selection-end-line="135" selection-end-column="26" />
+                <state vertical-scroll-proportion="0.0" vertical-offset="2484" max-vertical-offset="2862">
+                  <caret line="138" column="50" selection-start-line="138" selection-start-column="50" selection-end-line="138" selection-end-column="50" />
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="forms.py" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/app/forms.py">
+          <file leaf-file-name="ScoreAggregator.py" pinned="false" current="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/app/apis/ScoreAggregator.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0" vertical-offset="144" max-vertical-offset="288">
-                  <caret line="8" column="26" selection-start-line="8" selection-start-column="26" selection-end-line="8" selection-end-column="26" />
+                <state vertical-scroll-proportion="0.0" vertical-offset="54" max-vertical-offset="162">
+                  <caret line="3" column="8" selection-start-line="3" selection-start-column="8" selection-end-line="3" selection-end-column="8" />
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="base.html" pinned="false" current="true" current-in-tab="true">
+          <file leaf-file-name="base.html" pinned="false" current="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/app/templates/base.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.5559772" vertical-offset="157" max-vertical-offset="1008">
+                <state vertical-scroll-proportion="0.0" vertical-offset="157" max-vertical-offset="1008">
                   <caret line="25" column="25" selection-start-line="25" selection-start-column="25" selection-end-line="25" selection-end-column="25" />
                   <folding />
                 </state>
@@ -131,7 +134,7 @@
           <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/app/templates/index.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="-7.888889" vertical-offset="3" max-vertical-offset="864">
+                <state vertical-scroll-proportion="-3.8888888" vertical-offset="111" max-vertical-offset="864">
                   <caret line="12" column="0" selection-start-line="11" selection-start-column="9" selection-end-line="12" selection-end-column="0" />
                   <folding />
                 </state>
@@ -182,15 +185,15 @@
         <option value="$PROJECT_DIR$/flask/local/lib/python2.7/site-packages/migrate/versioning/schema.py" />
         <option value="$PROJECT_DIR$/app/models.py" />
         <option value="$PROJECT_DIR$/app/apis/dbchatter.py" />
-        <option value="$PROJECT_DIR$/app/static/pleytmaths.js" />
         <option value="$PROJECT_DIR$/app/forms.py" />
         <option value="$PROJECT_DIR$/app/apis/yelp_api.py" />
         <option value="$PROJECT_DIR$/app/views.py" />
-        <option value="$PROJECT_DIR$/app/apis/analyzer.py" />
-        <option value="$PROJECT_DIR$/app/static/style.css" />
-        <option value="$PROJECT_DIR$/app/templates/analysis.html" />
         <option value="$PROJECT_DIR$/app/templates/index.html" />
         <option value="$PROJECT_DIR$/app/templates/base.html" />
+        <option value="$PROJECT_DIR$/app/apis/analyzer.py" />
+        <option value="$PROJECT_DIR$/app/static/style.css" />
+        <option value="$PROJECT_DIR$/app/static/pleytmaths.js" />
+        <option value="$PROJECT_DIR$/app/templates/analysis.html" />
       </list>
     </option>
   </component>
@@ -242,38 +245,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="mouthfeel" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mouthfeel" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mouthfeel" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="d3-cloud" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mouthfeel" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mouthfeel" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="d3-cloud" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="examples" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -342,28 +313,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="apis" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mouthfeel" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mouthfeel" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="apis" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="alchemyapi_python" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -830,7 +779,11 @@
       <created>1423391174213</created>
       <updated>1423391174213</updated>
     </task>
-    <option name="localTasksCounter" value="37" />
+    <task id="LOCAL-00037" summary="Merge branch 'master' of https://github.com/themailman05/mouthfeel&#10;&#10;Conflicts:&#10;&#9;app/apis/yellow_api.pyc&#10;fuckin bracket">
+      <created>1423396869098</created>
+      <updated>1423396869098</updated>
+    </task>
+    <option name="localTasksCounter" value="38" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -838,7 +791,7 @@
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3290461" sideWeight="0.49972484" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.16455697" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.17116125" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.33333334" sideWeight="0.5002752" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -917,7 +870,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="72" max-vertical-offset="846">
           <caret line="4" column="23" selection-start-line="4" selection-start-column="23" selection-end-line="4" selection-end-column="23" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1253,13 +1205,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/apis/ScoreAggregator.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="162">
-          <caret line="3" column="8" selection-start-line="3" selection-start-column="8" selection-end-line="3" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/apis/api_key.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="126">
@@ -1271,7 +1216,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="203" max-vertical-offset="792">
           <caret line="29" column="51" selection-start-line="29" selection-start-column="51" selection-end-line="29" selection-end-column="51" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1279,7 +1223,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="1012" max-vertical-offset="1566">
           <caret line="80" column="22" selection-start-line="80" selection-start-column="22" selection-end-line="80" selection-end-column="22" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1302,7 +1245,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="2082" max-vertical-offset="2682">
           <caret line="143" column="11" selection-start-line="143" selection-start-column="11" selection-end-line="143" selection-end-column="11" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1310,15 +1252,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="288">
           <caret line="8" column="26" selection-start-line="8" selection-start-column="26" selection-end-line="8" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/static/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="765" max-vertical-offset="1332">
-          <caret line="67" column="22" selection-start-line="67" selection-start-column="22" selection-end-line="67" selection-end-column="22" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1326,14 +1259,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1584">
           <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/static/pleytmaths.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="171" max-vertical-offset="738">
-          <caret line="33" column="21" selection-start-line="33" selection-start-column="21" selection-end-line="33" selection-end-column="21" />
           <folding />
         </state>
       </provider>
@@ -1346,42 +1271,66 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/templates/analysis.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-9.518518" vertical-offset="31" max-vertical-offset="558">
-          <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/apis/analyzer.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1894" max-vertical-offset="2664">
-          <caret line="135" column="26" selection-start-line="135" selection-start-column="26" selection-end-line="135" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/templates/results.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.6666667" vertical-offset="0" max-vertical-offset="468">
-          <caret line="4" column="29" selection-start-line="4" selection-start-column="29" selection-end-line="4" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/templates/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.888889" vertical-offset="3" max-vertical-offset="864">
-          <caret line="12" column="0" selection-start-line="11" selection-start-column="9" selection-end-line="12" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="18" max-vertical-offset="540">
+          <caret line="5" column="29" selection-start-line="5" selection-start-column="29" selection-end-line="5" selection-end-column="29" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/templates/base.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5559772" vertical-offset="157" max-vertical-offset="1008">
+        <state vertical-scroll-proportion="0.0" vertical-offset="157" max-vertical-offset="1008">
           <caret line="25" column="25" selection-start-line="25" selection-start-column="25" selection-end-line="25" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/apis/analyzer.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1876" max-vertical-offset="2646">
+          <caret line="138" column="50" selection-start-line="138" selection-start-column="50" selection-end-line="138" selection-end-column="50" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/templates/analysis.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="198" max-vertical-offset="576">
+          <caret line="11" column="42" selection-start-line="11" selection-start-column="42" selection-end-line="11" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/apis/ScoreAggregator.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="162">
+          <caret line="3" column="8" selection-start-line="3" selection-start-column="8" selection-end-line="3" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/static/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="765" max-vertical-offset="1332">
+          <caret line="60" column="0" selection-start-line="60" selection-start-column="0" selection-end-line="60" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/templates/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-3.8888888" vertical-offset="111" max-vertical-offset="864">
+          <caret line="12" column="0" selection-start-line="11" selection-start-column="9" selection-end-line="12" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/static/pleytmaths.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.16605166" vertical-offset="270" max-vertical-offset="828">
+          <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
           <folding />
         </state>
       </provider>

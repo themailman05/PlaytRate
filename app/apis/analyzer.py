@@ -135,9 +135,8 @@ def calculateRating(rankscore):
     score = 2.5
     change = initscore*2.5
 
-
     score = score + change
-
+    print str(rankscore) + " now is " + str(score)
     return score
 
 

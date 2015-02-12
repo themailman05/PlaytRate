@@ -25,7 +25,10 @@ function playtmaths(score){
              'static/img/pleyt9.png',
              'static/img/pleyt10.png']
     var score = score.toFixed(1)*10;
-    var numfull = score/10;
+    console.log(score);
+    var temp = score/10;
+    var numfull = temp|0;
+    console.log(numfull);
     var numsmall = score%10;
 
     for (var ii=0; ii<numfull; ii++)
